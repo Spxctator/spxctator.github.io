@@ -9,32 +9,62 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
-    <h1>Annual Area Burnt by Wildfires Visualization</h1>
+    <h1>Annual Area Burnt by Wildfires Map Visualization</h1>
 
     <div id="vis"></div>
 
     <script>
-
         var spec = {
             "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "description": "Annual area burnt by wildfires across different regions.",
-            "data": {
-                "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/annual-area-burnt-by-wildfires.csv",
-                "format": {"type": "csv"}
-            },
-            "mark": "bar",
-            "encoding": {
-                "x": {"field": "Year", "type": "ordinal", "title": "Year"},
-                "y": {"field": "Annual area burnt by wildfires", "type": "quantitative"},
-                "color": {"field": "Entity", "type": "nominal", "title": "Country/Region"},
-                "tooltip": [
-                    {"field": "Entity", "type": "nominal", "title": "Country/Region"},
-                    {"field": "Year", "type": "ordinal"},
-                    {"field": "Annual area burnt by wildfires", "type": "quantitative"}
-                ]
-            },
             "width": 800,
-            "height": 400
+            "height": 450,
+            "title": "Annual Area Burnt by Wildfires in 2020",
+            "projection": {"type": "mercator"},  // You can use different projections like 'equalEarth'
+            "layer": [
+                {
+                    "data": {
+                        "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/ne_110m.json",  // Replace with your GeoJSON URL
+                        "format": {"type": "json", "property": "geometries"}
+                    },
+                    "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
+                    "encoding": {
+                        "color": {
+                            "value": "lightgray"  // Default color for the map shapes
+                        }
+                    }
+                },
+                {
+                    "data": {
+                        "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/annual-area-burnt-by-wildfires.csv"
+                    },
+                    "transform": [
+                        {
+                            "lookup": "properties.NAME",  // Adjust to match GeoJSON property
+                            "from": {
+                                "data": "wildfire",
+                                "key": "Entity", // Adjust to match your CSV field
+                                "fields": ["Annual area burnt by wildfires", "Year"]
+                            }
+                        },
+                        {
+                            "filter": "datum.Year == 2020"  // Adjust this year for other specific years
+                        }
+                    ],
+                    "mark": {"type": "geoshape"},
+                    "encoding": {
+                        "color": {
+                            "field": "Annual area burnt by wildfires",
+                            "type": "quantitative",
+                            "title": "Area Burnt",
+                            "scale": {"scheme": "reds"}
+                        },
+                        "tooltip": [
+                            {"field": "properties.NAME", "type": "nominal", "title": "Country/Region"}, // Adjust based on GeoJSON properties
+                            {"field": "Annual area burnt by wildfires", "type": "quantitative", "title": "Area Burnt in 2020"}
+                        ]
+                    }
+                }
+            ]
         };
 
         vegaEmbed('#vis', spec).catch(console.error);
