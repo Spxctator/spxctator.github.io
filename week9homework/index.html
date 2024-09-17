@@ -29,9 +29,6 @@
         #toggleGraticule {
             background-color: grey;
         }
-        #toggleOcean {
-            background-color: grey;
-        }
     </style>
 </head>
 <body>
@@ -40,28 +37,22 @@
         <div id="vis"></div>
         <div id="controls">
             <button id="toggleGraticule">Toggle Graticule</button>
-            <button id="toggleOcean">Toggle Ocean Color</button>
         </div>
     </div>
 
     <script>
         let graticuleVisible = true;
-        let oceanColorVisible = false;
 
         const updateButtonStyles = () => {
             const graticuleButton = document.getElementById('toggleGraticule');
-            const oceanButton = document.getElementById('toggleOcean');
 
             graticuleButton.style.backgroundColor = graticuleVisible ? 'green' : 'grey';
-            oceanButton.style.backgroundColor = oceanColorVisible ? 'green' : 'grey';
         };
 
         const renderMap = () => {
             fetch('js/wildfire_map.vg.json')
                 .then(response => response.json())
                 .then(spec => {
-                    spec.background = oceanColorVisible ? "lightblue" : null;
-                    
                     if (graticuleVisible) {
                         const graticuleLayer = {
                             "data": {
@@ -69,7 +60,7 @@
                             },
                             "mark": {
                                 "type": "geoshape",
-                                "stroke": oceanColorVisible ? "black" : "lightgray",
+                                "stroke": "lightgray",
                                 "strokeWidth": 0.5
                             }
                         };
@@ -85,11 +76,6 @@
 
         document.getElementById('toggleGraticule').addEventListener('click', () => {
             graticuleVisible = !graticuleVisible;
-            renderMap();
-        });
-
-        document.getElementById('toggleOcean').addEventListener('click', () => {
-            oceanColorVisible = !oceanColorVisible;
             renderMap();
         });
 
