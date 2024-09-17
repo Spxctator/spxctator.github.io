@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Week 9 Homework</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
-    
+    <h1>Annual Area Burnt by Wildfires Visualization</h1>
+
+    <div id="vis"></div>
+
+    <script>
+        
+        var spec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "description": "Annual area burnt by wildfires across different regions.",
+            "data": {
+                "url": "https://spxctator.github.io/.data/annual-area-burnt-by-wildfires.csv",
+                "format": {"type": "csv"}
+            },
+            "mark": "bar",
+            "encoding": {
+                "x": {"field": "Year", "type": "ordinal", "title": "Year"},
+                "y": {"field": "Annual area burnt by wildfires", "type": "quantitative"},
+                "color": {"field": "Entity", "type": "nominal", "title": "Country/Region"},
+                "tooltip": [
+                    {"field": "Entity", "type": "nominal", "title": "Country/Region"},
+                    {"field": "Year", "type": "ordinal"},
+                    {"field": "Annual area burnt by wildfires", "type": "quantitative"}
+                ]
+            },
+            "width": 800,
+            "height": 400
+        };
+
+        vegaEmbed('#vis', spec);
+    </script>
+
 </body>
 </html>
