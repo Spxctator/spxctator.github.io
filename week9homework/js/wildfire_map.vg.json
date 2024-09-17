@@ -1,0 +1,56 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Annual Area Burnt by Wildfires",
+    "width": 1000,
+    "height": 500,
+    "background": null,
+    "layer": [
+        {
+            "data": {
+                "graticule": true
+            },
+            "mark": {
+                "type": "geoshape",
+                "stroke": "lightgray",
+                "strokeWidth": 0.5
+            }
+        },
+        {
+            "projection": {"type": "equalEarth"},
+            "data": {
+                "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/ne_110m_admin_0_countries.json",
+                "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+            },
+            "transform": [
+                {
+                    "lookup": "properties.ISO_A3",
+                    "from": {
+                        "data": {
+                            "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/annual-area-burnt-by-wildfires.csv"
+                        },
+                        "key": "Code",
+                        "fields": ["Annual area burnt by wildfires"]
+                    }
+                },
+                {"calculate": "datum['Annual area burnt by wildfires'] + 0.1", "as": "Area Burnt"}
+            ],
+            "mark": {"type": "geoshape"},
+            "encoding": {
+                "color": {
+                    "field": "Area Burnt",
+                    "type": "quantitative",
+                    "scale": {"scheme": "reds", "type": "log"},
+                    "title": "Annual Area Burnt (ha)"
+                },
+                "tooltip": [
+                    {"field": "properties.NAME", "type": "nominal", "title": "Country/Region"},
+                    {
+                        "field": "Area Burnt",
+                        "type": "quantitative",
+                        "title": "Area Burnt (ha)"
+                    }
+                ]
+            }
+        }
+    ]
+}
