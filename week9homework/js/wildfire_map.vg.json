@@ -26,27 +26,43 @@
                     "lookup": "properties.ISO_A3",
                     "from": {
                         "data": {
-                            "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/annual-area-burnt-by-wildfires.csv"
+                            "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/annual-area-burnt-by-wildfires-2020.csv",
+                            "format": {"type": "csv"}
                         },
                         "key": "Code",
                         "fields": ["Annual area burnt by wildfires"]
                     }
                 },
-                {"calculate": "datum['Annual area burnt by wildfires'] + 0.1", "as": "Area Burnt"}
+                {
+                    "calculate": "toNumber(datum['Annual area burnt by wildfires']) + 0.1",
+                    "as": "Area Burnt"
+                },
+                {
+                    "calculate": "datum['Area Burnt'] - 0.1",
+                    "as": "Original Area Burnt"
+                },
+                {
+                    "calculate": "datum['Original Area Burnt'] == 0 ? 'No Data' : datum['Original Area Burnt']",
+                    "as": "Tooltip Area Burnt"
+                }
             ],
             "mark": {"type": "geoshape"},
             "encoding": {
                 "color": {
                     "field": "Area Burnt",
                     "type": "quantitative",
-                    "scale": {"scheme": "reds", "type": "log"},
+                    "scale": {
+                        "domain": [0.1, 10000, 100000, 1000000, 10000000, 100000000],
+                        "range": ["#D3D3D3", "#ffeda0", "#feb24c", "#fd8d3c", "#fc4e2a", "#bd0026"],
+                        "type": "log"
+                    },
                     "title": "Annual Area Burnt (ha)"
                 },
                 "tooltip": [
                     {"field": "properties.NAME", "type": "nominal", "title": "Country/Region"},
                     {
-                        "field": "Area Burnt",
-                        "type": "quantitative",
+                        "field": "Tooltip Area Burnt",
+                        "type": "nominal",
                         "title": "Area Burnt (ha)"
                     }
                 ]
