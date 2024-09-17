@@ -1,0 +1,183 @@
+Entity,Code,Average precipitation in depth (mm per year)
+Afghanistan,AFG,327.0
+Albania,ALB,1485.0
+Algeria,DZA,89.0
+Angola,AGO,1010.0
+Antigua and Barbuda,ATG,1030.0
+Argentina,ARG,591.0
+Armenia,ARM,562.0
+Australia,AUS,534.0
+Austria,AUT,1110.0
+Azerbaijan,AZE,447.0
+Bahamas,BHS,1292.0
+Bahrain,BHR,83.0
+Bangladesh,BGD,2666.0
+Barbados,BRB,1422.0
+Belarus,BLR,618.0
+Belgium,BEL,847.0
+Belize,BLZ,1705.0
+Benin,BEN,1039.0
+Bhutan,BTN,2200.0
+Bolivia,BOL,1146.0
+Bosnia and Herzegovina,BIH,1028.0
+Botswana,BWA,416.0
+Brazil,BRA,1761.0
+Brunei,BRN,2722.0
+Bulgaria,BGR,608.0
+Burkina Faso,BFA,748.0
+Burundi,BDI,1274.0
+Cambodia,KHM,1904.0
+Cameroon,CMR,1604.0
+Canada,CAN,537.0
+Cape Verde,CPV,228.0
+Central African Republic,CAF,1343.0
+Chad,TCD,322.0
+Chile,CHL,1522.0
+China,CHN,645.0
+Colombia,COL,3240.0
+Comoros,COM,900.0
+Congo,COG,1646.0
+Costa Rica,CRI,2926.0
+Cote d'Ivoire,CIV,1348.0
+Croatia,HRV,1113.0
+Cuba,CUB,1335.0
+Cyprus,CYP,498.0
+Czechia,CZE,677.0
+Democratic Republic of Congo,COD,1543.0
+Denmark,DNK,703.0
+Djibouti,DJI,220.0
+Dominica,DMA,2083.0
+Dominican Republic,DOM,1410.0
+East Timor,TLS,1500.0
+Ecuador,ECU,2274.0
+Egypt,EGY,18.1
+El Salvador,SLV,1784.0
+Equatorial Guinea,GNQ,2156.0
+Eritrea,ERI,384.0
+Estonia,EST,626.0
+Eswatini,SWZ,788.0
+Ethiopia,ETH,848.0
+Fiji,FJI,2592.0
+Finland,FIN,536.0
+France,FRA,867.0
+Gabon,GAB,1831.0
+Gambia,GMB,836.0
+Georgia,GEO,1026.0
+Germany,DEU,700.0
+Ghana,GHA,1187.0
+Greece,GRC,652.0
+Grenada,GRD,2350.0
+Guatemala,GTM,1996.0
+Guinea,GIN,1651.0
+Guinea-Bissau,GNB,1577.0
+Guyana,GUY,2387.0
+Haiti,HTI,1440.0
+Honduras,HND,1976.0
+Hungary,HUN,589.0
+Iceland,ISL,1940.0
+India,IND,1083.0
+Indonesia,IDN,2702.0
+Iran,IRN,228.0
+Iraq,IRQ,216.0
+Ireland,IRL,1118.0
+Israel,ISR,435.0
+Italy,ITA,832.0
+Jamaica,JAM,2051.0
+Japan,JPN,1668.0
+Jordan,JOR,111.0
+Kazakhstan,KAZ,250.0
+Kenya,KEN,630.0
+Kuwait,KWT,121.0
+Kyrgyzstan,KGZ,533.0
+Laos,LAO,1834.0
+Latvia,LVA,667.0
+Lebanon,LBN,661.0
+Lesotho,LSO,788.0
+Liberia,LBR,2391.0
+Libya,LBY,56.0
+Lithuania,LTU,656.0
+Luxembourg,LUX,934.0
+Madagascar,MDG,1513.0
+Malawi,MWI,1181.0
+Malaysia,MYS,2875.0
+Maldives,MDV,1972.0
+Mali,MLI,282.0
+Malta,MLT,560.0
+Mauritania,MRT,92.0
+Mauritius,MUS,2041.0
+Mexico,MEX,758.0
+Moldova,MDA,450.0
+Mongolia,MNG,241.0
+Morocco,MAR,346.0
+Mozambique,MOZ,1032.0
+Myanmar,MMR,2091.0
+Namibia,NAM,285.0
+Nepal,NPL,1500.0
+Netherlands,NLD,778.0
+New Zealand,NZL,1732.0
+Nicaragua,NIC,2280.0
+Niger,NER,151.0
+Nigeria,NGA,1150.0
+North Korea,PRK,1054.0
+North Macedonia,MKD,619.0
+Norway,NOR,1414.0
+Oman,OMN,125.0
+Pakistan,PAK,494.0
+Palestine,PSE,402.0
+Panama,PAN,2928.0
+Papua New Guinea,PNG,3142.0
+Paraguay,PRY,1130.0
+Peru,PER,1738.0
+Philippines,PHL,2348.0
+Poland,POL,600.0
+Portugal,PRT,854.0
+Puerto Rico,PRI,2054.0
+Qatar,QAT,74.0
+Romania,ROU,637.0
+Russia,RUS,460.0
+Rwanda,RWA,1212.0
+Saint Kitts and Nevis,KNA,1427.0
+Saint Lucia,LCA,2301.0
+Saint Vincent and the Grenadines,VCT,1583.0
+Samoa,WSM,2880.0
+Sao Tome and Principe,STP,3200.0
+Saudi Arabia,SAU,59.0
+Senegal,SEN,686.0
+Seychelles,SYC,2330.0
+Sierra Leone,SLE,2526.0
+Singapore,SGP,2497.0
+Slovakia,SVK,824.0
+Slovenia,SVN,1162.0
+Solomon Islands,SLB,3028.0
+Somalia,SOM,282.0
+South Africa,ZAF,495.0
+South Korea,KOR,1274.0
+South Sudan,SSD,900.0
+Spain,ESP,636.0
+Sri Lanka,LKA,1712.0
+Sudan,SDN,250.0
+Suriname,SUR,2331.0
+Sweden,SWE,624.0
+Switzerland,CHE,1537.0
+Syria,SYR,252.0
+Tajikistan,TJK,691.0
+Tanzania,TZA,1071.0
+Thailand,THA,1622.0
+Togo,TGO,1168.0
+Trinidad and Tobago,TTO,2200.0
+Tunisia,TUN,207.0
+Turkey,TUR,593.0
+Turkmenistan,TKM,161.0
+Uganda,UGA,1180.0
+Ukraine,UKR,565.0
+United Arab Emirates,ARE,78.0
+United Kingdom,GBR,1220.0
+United States,USA,715.0
+Uruguay,URY,1300.0
+Uzbekistan,UZB,206.0
+Vanuatu,VUT,2000.0
+Venezuela,VEN,2044.0
+Vietnam,VNM,1821.0
+Yemen,YEM,167.0
+Zambia,ZMB,1020.0
+Zimbabwe,ZWE,657.0

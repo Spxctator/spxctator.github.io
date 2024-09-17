@@ -3,7 +3,7 @@
     "title": "Annual Area Burnt by Wildfires",
     "width": 1000,
     "height": 500,
-    "background": null,
+    "background": "white",
     "layer": [
         {
             "data": {

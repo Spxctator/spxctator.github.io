@@ -1,0 +1,196 @@
+Entity,Code,Average surface temperature
+Afghanistan,AFG,12.36
+Albania,ALB,13.34
+Algeria,DZA,24.73
+American Samoa,ASM,26.99
+Andorra,AND,5.85
+Angola,AGO,22.63
+Anguilla,AIA,26.48
+Antigua and Barbuda,ATG,26.46
+Argentina,ARG,15.25
+Armenia,ARM,7.1
+Australia,AUS,22.58
+Austria,AUT,7.72
+Azerbaijan,AZE,12.65
+Bahamas,BHS,26.11
+Bahrain,BHR,26.6
+Bangladesh,BGD,25.39
+Belarus,BLR,9.11
+Belgium,BEL,11.55
+Belize,BLZ,26.46
+Benin,BEN,27.87
+Bhutan,BTN,8.56
+Bolivia,BOL,21.08
+Bosnia and Herzegovina,BIH,11.11
+Botswana,BWA,22.03
+Brazil,BRA,25.19
+Brunei,BRN,26.87
+Bulgaria,BGR,12.34
+Burkina Faso,BFA,28.99
+Burundi,BDI,21.34
+Cambodia,KHM,27.73
+Cameroon,CMR,25.17
+Canada,CAN,-3.56
+Cape Verde,CPV,23.17
+Cayman Islands,CYM,27.31
+Central African Republic,CAF,26.6
+Chad,TCD,27.56
+Chile,CHL,9.54
+China,CHN,7.61
+Colombia,COL,24.52
+Comoros,COM,25.35
+Congo,COG,25.38
+Cook Islands,COK,24.69
+Costa Rica,CRI,23.42
+Cote d'Ivoire,CIV,26.84
+Croatia,HRV,12.81
+Cuba,CUB,26.17
+Cyprus,CYP,20.23
+Czechia,CZE,9.44
+Democratic Republic of Congo,COD,24.82
+Denmark,DNK,10.08
+Djibouti,DJI,28.65
+Dominican Republic,DOM,24.87
+East Timor,TLS,25.07
+Ecuador,ECU,21.28
+Egypt,EGY,23.16
+El Salvador,SLV,26.48
+Equatorial Guinea,GNQ,24.58
+Eritrea,ERI,27.0
+Estonia,EST,8.27
+Eswatini,SWZ,19.81
+Ethiopia,ETH,23.76
+Falkland Islands,FLK,7.12
+Faroe Islands,FRO,7.25
+Fiji,FJI,25.03
+Finland,FIN,4.72
+France,FRA,14.51
+French Polynesia,PYF,25.55
+Gabon,GAB,25.27
+Gambia,GMB,28.35
+Georgia,GEO,9.05
+Germany,DEU,10.54
+Ghana,GHA,27.96
+Greece,GRC,15.57
+Greenland,GRL,-18.37
+Guatemala,GTM,23.83
+Guinea,GIN,26.61
+Guinea-Bissau,GNB,28.1
+Guyana,GUY,25.68
+Haiti,HTI,25.69
+Heard Island and McDonald Islands,HMD,1.88
+Honduras,HND,24.25
+Hong Kong,HKG,23.7
+Hungary,HUN,11.95
+Iceland,ISL,1.58
+India,IND,24.16
+Indonesia,IDN,25.66
+Iran,IRN,18.34
+Iraq,IRQ,23.82
+Ireland,IRL,10.01
+Isle of Man,IMN,10.61
+Israel,ISR,21.03
+Italy,ITA,13.71
+Jamaica,JAM,26.53
+Japan,JPN,12.75
+Jordan,JOR,20.33
+Kazakhstan,KAZ,7.91
+Kenya,KEN,25.45
+Kiribati,KIR,26.42
+Kosovo,OWID_KOS,11.17
+Kuwait,KWT,26.94
+Kyrgyzstan,KGZ,0.45
+Laos,LAO,23.81
+Latvia,LVA,8.63
+Lebanon,LBN,16.59
+Lesotho,LSO,11.68
+Liberia,LBR,25.76
+Libya,LBY,22.58
+Lithuania,LTU,9.12
+Luxembourg,LUX,10.87
+Madagascar,MDG,23.03
+Malawi,MWI,22.54
+Malaysia,MYS,26.03
+Mali,MLI,29.24
+Mauritania,MRT,28.48
+Mauritius,MUS,23.45
+Mexico,MEX,21.58
+Moldova,MDA,12.19
+Mongolia,MNG,1.91
+Montenegro,MNE,10.56
+Morocco,MAR,19.51
+Mozambique,MOZ,24.43
+Myanmar,MMR,24.13
+Namibia,NAM,22.01
+Nepal,NPL,12.97
+Netherlands,NLD,11.58
+New Caledonia,NCL,22.88
+New Zealand,NZL,10.98
+Nicaragua,NIC,25.86
+Niger,NER,27.93
+Nigeria,NGA,27.26
+North Korea,PRK,7.91
+North Macedonia,MKD,11.79
+Norway,NOR,1.97
+Oman,OMN,27.94
+Pakistan,PAK,20.34
+Palestine,PSE,21.05
+Panama,PAN,25.28
+Papua New Guinea,PNG,23.98
+Paraguay,PRY,24.86
+Peru,PER,19.37
+Philippines,PHL,26.45
+Poland,POL,10.02
+Portugal,PRT,15.98
+Puerto Rico,PRI,25.64
+Qatar,QAT,28.09
+Romania,ROU,11.08
+Russia,RUS,-1.28
+Rwanda,RWA,20.23
+Saint Helena,SHN,21.61
+Saint Vincent and the Grenadines,VCT,26.71
+Samoa,WSM,25.57
+Sao Tome and Principe,STP,26.03
+Saudi Arabia,SAU,26.55
+Senegal,SEN,29.38
+Serbia,SRB,11.67
+Seychelles,SYC,26.94
+Sierra Leone,SLE,26.4
+Slovakia,SVK,9.5
+Slovenia,SVN,10.83
+Solomon Islands,SLB,26.58
+Somalia,SOM,27.09
+South Africa,ZAF,18.18
+South Georgia and the South Sandwich Islands,SGS,-0.69
+South Korea,KOR,12.85
+South Sudan,SSD,28.05
+Spain,ESP,14.71
+Sri Lanka,LKA,26.99
+Sudan,SDN,27.22
+Suriname,SUR,26.23
+Sweden,SWE,5.44
+Switzerland,CHE,6.68
+Syria,SYR,20.06
+Tajikistan,TJK,0.01
+Tanzania,TZA,22.93
+Thailand,THA,27.0
+Togo,TGO,27.43
+Trinidad and Tobago,TTO,26.49
+Tunisia,TUN,20.86
+Turkey,TUR,12.79
+Turkmenistan,TKM,16.46
+Uganda,UGA,23.17
+Ukraine,UKR,10.76
+United Arab Emirates,ARE,28.58
+United Kingdom,GBR,9.9
+United States,USA,10.27
+United States Virgin Islands,VIR,26.71
+Uruguay,URY,17.61
+Uzbekistan,UZB,13.47
+Vanuatu,VUT,25.27
+Venezuela,VEN,25.98
+Vietnam,VNM,24.41
+World,OWID_WRL,14.8
+Yemen,YEM,25.86
+Zambia,ZMB,22.17
+Zimbabwe,ZWE,21.79
