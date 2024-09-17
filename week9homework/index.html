@@ -7,54 +7,110 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <style>
+        #container {
+            display: flex;
+            justify-content: flex-start;
+        }
+        #controls {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+        }
+        #controls button {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <h1>Annual Area Burnt by Wildfires</h1>
-    <div id="vis"></div>
+    <div id="container">
+        <div id="vis"></div>
+        <div id="controls">
+            <button id="toggleGraticule">Toggle Graticule</button>
+            <button id="toggleOcean">Toggle Ocean Color</button>
+        </div>
+    </div>
+
     <script>
-        const spec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "title": "Annual Area Burnt by Wildfires",
-            "width": 1000,
-            "height": 500,
-            "projection": {"type": "equalEarth"},
-            "data": {
-                "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/ne_110m.json",
-                "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-            },
-            "transform": [
-                {
-                    "lookup": "properties.ISO_A3",
-                    "from": {
+        let graticuleVisible = true;
+        let oceanColorVisible = false;
+
+        const renderMap = () => {
+            const spec = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "title": "Annual Area Burnt by Wildfires",
+                "width": 1000,
+                "height": 500,
+                "background": oceanColorVisible ? "lightblue" : null,
+                "layer": [
+                    graticuleVisible ? {
                         "data": {
-                            "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/annual-area-burnt-by-wildfires.csv"
+                            "graticule": true
                         },
-                        "key": "Code",
-                        "fields": ["Annual area burnt by wildfires"]
-                    }
-                },
-                {"calculate": "datum['Annual area burnt by wildfires'] + 0.1", "as": "Area Burnt"}
-            ],
-            "mark": {"type": "geoshape"},
-            "encoding": {
-                "color": {
-                    "field": "Area Burnt",
-                    "type": "quantitative",
-                    "scale": {"scheme": "reds", "type": "log"},
-                    "title": "Annual Area Burnt (ha)"
-                },
-                "tooltip": [
-                    {"field": "properties.NAME", "type": "nominal", "title": "Country/Region"},
+                        "mark": {
+                            "type": "geoshape",
+                            "stroke": "lightgray",
+                            "strokeWidth": 0.5
+                        }
+                    } : null,
                     {
-                        "field": "Area Burnt",
-                        "type": "quantitative",
-                        "title": "Area Burnt (ha)"
+                        "projection": {"type": "equalEarth"},
+                        "data": {
+                            "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/ne_110m_admin_0_countries.json",
+                            "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+                        },
+                        "transform": [
+                            {
+                                "lookup": "properties.ISO_A3",
+                                "from": {
+                                    "data": {
+                                        "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/annual-area-burnt-by-wildfires.csv"
+                                    },
+                                    "key": "Code",
+                                    "fields": ["Annual area burnt by wildfires"]
+                                }
+                            },
+                            {"calculate": "datum['Annual area burnt by wildfires'] + 0.1", "as": "Area Burnt"}
+                        ],
+                        "mark": {"type": "geoshape"},
+                        "encoding": {
+                            "color": {
+                                "field": "Area Burnt",
+                                "type": "quantitative",
+                                "scale": {"scheme": "reds", "type": "log"},
+                                "title": "Annual Area Burnt (ha)"
+                            },
+                            "tooltip": [
+                                {"field": "properties.NAME", "type": "nominal", "title": "Country/Region"},
+                                {
+                                    "field": "Area Burnt",
+                                    "type": "quantitative",
+                                    "title": "Area Burnt (ha)"
+                                }
+                            ]
+                        }
                     }
-                ]
-            }
+                ].filter(layer => layer !== null)
+            };
+
+            vegaEmbed('#vis', spec).catch(console.error);
         };
 
-        vegaEmbed('#vis', spec).catch(console.error);
+        document.getElementById('toggleGraticule').addEventListener('click', () => {
+            graticuleVisible = !graticuleVisible;
+            renderMap();
+        });
+
+        document.getElementById('toggleOcean').addEventListener('click', () => {
+            oceanColorVisible = !oceanColorVisible;
+            renderMap();
+        });
+
+        renderMap();
     </script>
 </body>
 </html>
