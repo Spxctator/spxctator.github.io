@@ -51,7 +51,7 @@
             "as": "Original Area Burnt Ha per km²"
           },
           {
-            "calculate": "datum['Original Area Burnt Ha per km²'] == 0 ? 'No Data' : format(datum['Original Area Burnt Ha per km²'], '.2f')",
+            "calculate": "datum['Original Area Burnt Ha per km²'] == 0 ? 'No Data' : format(datum['Original Area Burnt Ha per km²'], '.3f')",
             "as": "Tooltip Area Burnt Ha per km²"
           }
         ],
