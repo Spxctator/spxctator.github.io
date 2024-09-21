@@ -65,7 +65,7 @@
               "range": ["#D3D3D3", "#feb24c", "#bd0026"],
               "type": "log"
             },
-            "title": "Area Burnt per Land Area (Ha/km²)"
+            "title": ["Area Burnt per", "Land Area (Ha/km²)"]
           },
           "tooltip": [
             { "field": "properties.NAME", "type": "nominal", "title": "Country/Region" },
