@@ -18,7 +18,7 @@ def get_country_area(country_name):
 
 # Apply the function to get the area of each country and normalize the area burnt
 df['Country Area'] = df['Entity'].apply(get_country_area)
-df['Normalized area burnt'] = (df['Annual area burnt by wildfires'] / df['Country Area']).round(2)
+df['Normalized area burnt'] = (df['Annual area burnt by wildfires'] / df['Country Area']) * 100
 
 # Save the filtered data to a new CSV file
 df.to_csv(filtered_file_path, index=False)
