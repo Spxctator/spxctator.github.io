@@ -51,9 +51,9 @@
             "as": "Original Area Burnt Ha per km²"
           },
           {
-            "calculate": "datum['Original Area Burnt Ha per km²'] == 0 ? 'No Data' : datum['Original Area Burnt Ha per km²']",
+            "calculate": "datum['Original Area Burnt Ha per km²'] == 0 ? 'No Data' : format(datum['Original Area Burnt Ha per km²'], '.2f')",
             "as": "Tooltip Area Burnt Ha per km²"
-          }
+          }          
         ],
         "mark": {"type": "geoshape"},
         "encoding": {
@@ -61,7 +61,7 @@
             "field": "Area Burnt Ha per km²",
             "type": "quantitative",
             "scale": {
-              "domain": [0.001, 0.1, 40],
+              "domain": [0.001, 10, 4000],
               "range": ["#D3D3D3", "#feb24c", "#bd0026"],
               "type": "log"
             },
