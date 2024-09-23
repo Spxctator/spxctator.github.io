@@ -3,9 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment 2</title>
+    <title>Assignment 2 - The Burning World</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin: 20px 0;
+            font-size: 36px;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 20px; /* Add margin on the sides */
+        }
+        .chart-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px 0;
+        }
+        .row {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .half-width {
+            width: 49%;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>The Burning World</h1>
+    <div class="container">
+
+        <div id="wildfire-map" class="chart-container"></div>
+
+        <div class="row">
+            <div id="temperature-map" class="half-width"></div>
+            <div id="precipitation-map" class="half-width"></div>
+        </div>
+
+    </div>
+
+    <script>
+        vegaEmbed('#wildfire-map', 'js/wildfire_map.vg.json').catch(console.error);
+
+        vegaEmbed('#temperature-map', 'js/temperature_map.vg.json').catch(console.error);
+
+        vegaEmbed('#precipitation-map', 'js/precipitation_map.vg.json').catch(console.error);
+    </script>
 </body>
 </html>

@@ -6,29 +6,18 @@
     "background": "white",
     "layer": [
       {
-        "data": {
-          "graticule": true
-        },
-        "mark": {
-          "type": "geoshape",
-          "stroke": "lightgray",
-          "strokeWidth": 0.5
-        }
+        "data": {"graticule": true},
+        "mark": {"type": "geoshape", "stroke": "lightgray", "strokeWidth": 0.5}
       },
       {
-        "data": {
-          "sphere": true
-        },
-        "mark": {
-          "type": "geoshape",
-          "fill": "lightblue"
-        }
+        "data": {"sphere": true},
+        "mark": {"type": "geoshape", "fill": "lightblue"}
       },
       {
-        "projection": { "type": "equalEarth" },
+        "projection": {"type": "equalEarth"},
         "data": {
           "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/ne_110m.json",
-          "format": { "type": "topojson", "feature": "ne_110m_admin_0_countries" }
+          "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
         },
         "transform": [
           {
@@ -36,7 +25,7 @@
             "from": {
               "data": {
                 "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/average-monthly-surface-temperature-2020.csv",
-                "format": { "type": "csv" }
+                "format": {"type": "csv"}
               },
               "key": "Code",
               "fields": ["Average surface temperature"]
@@ -51,20 +40,31 @@
             "as": "Tooltip Avg Surface Temp (°C)"
           }
         ],
-        "mark": { "type": "geoshape" },
+        "mark": {"type": "geoshape"},
         "encoding": {
           "color": {
             "field": "Avg Surface Temp (°C)",
             "type": "quantitative",
             "scale": {
               "domain": [-20, -10, 0, 10, 20, 30],
-              "range": ["#5e3c99", "#b59fbd", "#f7f7f7", "#f9e79f", "#e56756", "#b2182b"],
+              "range": [
+                "#5e3c99",
+                "#b59fbd",
+                "#f7f7f7",
+                "#f9e79f",
+                "#e56756",
+                "#b2182b"
+              ],
               "type": "linear"
             },
             "title": ["Avg Surface Temperature", "(°C)"]
           },
           "tooltip": [
-            { "field": "properties.NAME", "type": "nominal", "title": "Country/Region" },
+            {
+              "field": "properties.NAME",
+              "type": "nominal",
+              "title": "Country/Region"
+            },
             {
               "field": "Tooltip Avg Surface Temp (°C)",
               "type": "nominal",
@@ -75,4 +75,3 @@
       }
     ]
   }
-  

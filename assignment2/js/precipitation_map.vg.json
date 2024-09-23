@@ -6,29 +6,18 @@
     "background": "white",
     "layer": [
       {
-        "data": {
-          "graticule": true
-        },
-        "mark": {
-          "type": "geoshape",
-          "stroke": "lightgray",
-          "strokeWidth": 0.5
-        }
+        "data": {"graticule": true},
+        "mark": {"type": "geoshape", "stroke": "lightgray", "strokeWidth": 0.5}
       },
       {
-        "data": {
-          "sphere": true
-        },
-        "mark": {
-          "type": "geoshape",
-          "fill": "lightblue"
-        }
+        "data": {"sphere": true},
+        "mark": {"type": "geoshape", "fill": "lightblue"}
       },
       {
-        "projection": { "type": "equalEarth" },
+        "projection": {"type": "equalEarth"},
         "data": {
           "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/ne_110m.json",
-          "format": { "type": "topojson", "feature": "ne_110m_admin_0_countries" }
+          "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
         },
         "transform": [
           {
@@ -36,7 +25,7 @@
             "from": {
               "data": {
                 "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/average-precipitation-per-year-2020.csv",
-                "format": { "type": "csv" }
+                "format": {"type": "csv"}
               },
               "key": "Code",
               "fields": ["Average precipitation in depth (mm per year)"]
@@ -51,20 +40,32 @@
             "as": "Tooltip Avg Precipitation (mm/year)"
           }
         ],
-        "mark": { "type": "geoshape" },
+        "mark": {"type": "geoshape"},
         "encoding": {
           "color": {
             "field": "Avg Precipitation (mm/year)",
             "type": "quantitative",
             "scale": {
-              "domain": [0, 250, 500, 750, 1000, 1250, 1500, 1750, 2000, 2500, 3000, 3500],
-              "range": ["#d9f0a3", "#b2df8a", "#78c679", "#41ab5d", "#238b45", "#005a32"],
-              "type": "threshold"
+              "domain": [0, 250, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3250, 3500],
+              "range": [
+                "#e5f5e0",
+                "#c7e9c0",
+                "#a1d99b",
+                "#74c476",
+                "#41ab5d",
+                "#238b45",
+                "#005a32"
+              ],
+              "type": "linear"
             },
             "title": ["Avg Precipitation", "(mm/year)"]
           },
           "tooltip": [
-            { "field": "properties.NAME", "type": "nominal", "title": "Country/Region" },
+            {
+              "field": "properties.NAME",
+              "type": "nominal",
+              "title": "Country/Region"
+            },
             {
               "field": "Tooltip Avg Precipitation (mm/year)",
               "type": "nominal",
