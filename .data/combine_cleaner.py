@@ -10,6 +10,6 @@ merged_data = annual_area_burnt.merge(average_temp, on=['Entity', 'Code'], how='
 merged_data = merged_data.merge(average_precipitation, on=['Entity', 'Code'], how='outer')
 
 # Save the merged dataset to a new CSV file
-merged_data.to_csv('.data/merged_dataset.csv', index=False)
+merged_data.to_csv('.data/merged-data-2020.csv', index=False)
 
-print("The datasets have been successfully merged and saved to 'merged_dataset.csv'.")
+print("The datasets have been successfully merged and saved to 'merged_data-2020.csv'.")
