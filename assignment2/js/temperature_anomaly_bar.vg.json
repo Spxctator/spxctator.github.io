@@ -1,0 +1,35 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Global Temperature Anomalies (1990-2020)",
+    "width": 800,
+    "height": 500,
+    "data": {
+      "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/global-temperature-anomalies-1990-2020.csv",
+      "format": {"type": "csv"}
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      "y": {
+        "field": "Temperature anomaly",
+        "type": "quantitative",
+        "title": "Temperature Anomaly (°C)"
+      },
+      "color": {
+        "condition": {
+          "test": "datum['Temperature anomaly'] >= 0",
+          "value": "#e45756"
+        },
+        "value": "#1f77b4"
+      },
+      "tooltip": [
+        {"field": "Year", "type": "ordinal", "title": "Year"},
+        {"field": "Temperature anomaly", "type": "quantitative", "title": "Anomaly (°C)"}
+      ]
+    }
+  }
+  
