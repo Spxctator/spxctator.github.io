@@ -1,0 +1,50 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Temperature vs Precipitation with Normalized Area Burnt (2020)",
+    "width": 800,
+    "height": 500,
+    "data": {
+      "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/refs/heads/main/.data/merged-data-2020.csv",
+      "format": {"type": "csv"}
+    },
+    "transform": [
+      {
+        "filter": "datum['Normalized area burnt'] != null && datum['Average surface temperature'] != null && datum['Average precipitation in depth (mm per year)'] != 0"
+      }
+    ],
+    "mark": {
+      "type": "point",
+      "filled": true,
+      "fillOpacity": 0.6
+    },
+    "encoding": {
+      "x": {
+        "field": "Average surface temperature",
+        "type": "quantitative",
+        "title": "Average Surface Temperature (°C)"
+      },
+      "y": {
+        "field": "Average precipitation in depth (mm per year)",
+        "type": "quantitative",
+        "title": "Average Precipitation (mm per year)"
+      },
+      "size": {
+        "field": "Normalized area burnt",
+        "type": "quantitative",
+        "title": "Normalized Area Burnt",
+        "scale": {"range": [0, 2000]}
+      },
+      "tooltip": [
+        {"field": "Entity", "type": "nominal", "title": "Country/Region"},
+        {"field": "Average surface temperature", "type": "quantitative", "title": "Temperature (°C)"},
+        {"field": "Average precipitation in depth (mm per year)", "type": "quantitative", "title": "Precipitation (mm/year)"},
+        {"field": "Normalized area burnt", "type": "quantitative", "title": "Area Burnt per Land Area (Ha/km²)"}
+      ],
+      "color": {
+        "field": "Entity",
+        "type": "nominal",
+        "legend": null
+      }
+    }
+  }
+  
