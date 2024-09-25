@@ -36,7 +36,7 @@
       },
       "tooltip": [
         {"field": "Entity", "type": "nominal", "title": "Country/Region"},
-        {"field": "Average surface temperature", "type": "quantitative", "title": "Temperature (°C)"},
+        {"field": "Average surface temperature", "type": "quantitative", "title": "Temperature (°C)", "format": ".2f"},
         {"field": "Average precipitation in depth (mm per year)", "type": "quantitative", "title": "Precipitation (mm/year)"},
         {
           "field": "Normalized area burnt",
