@@ -9,11 +9,7 @@
     },
     "mark": "bar",
     "encoding": {
-      "x": {
-        "field": "Year",
-        "type": "ordinal",
-        "title": "Year"
-      },
+      "x": {"field": "Year", "type": "ordinal", "title": "Year"},
       "y": {
         "field": "Temperature anomaly",
         "type": "quantitative",
@@ -37,4 +33,3 @@
       ]
     }
   }
-  

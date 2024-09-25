@@ -57,16 +57,24 @@
             "condition": [
               {
                 "test": "datum.Year === '2012' || datum.Year === 'End'",
-                "value": "#f7e0b6"
+                "value": "lightblue"
               },
               {"test": "datum.Total < datum.previous_total", "value": "#f78a64"}
             ],
-            "value": "#93c4aa"
+            "value": "#f7e0b6"
           },
           "tooltip": [
             {"field": "Year", "title": "Year"},
-            {"field": "change_value", "title": "Change in Area Burnt (ha)", "format": ",d"},
-            {"field": "Total", "title": "Cumulative Area Burnt (ha)", "format": ",d"}
+            {
+              "field": "change_value",
+              "title": "Change in Area Burnt (ha)",
+              "format": ",d"
+            },
+            {
+              "field": "Total",
+              "title": "Cumulative Area Burnt (ha)",
+              "format": ",d"
+            }
           ]
         }
       },
