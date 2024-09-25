@@ -1,0 +1,88 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "values": [
+        {"Year": "2012", "Change": 1313012238},
+        {"Year": "2013", "Change": -149124953},
+        {"Year": "2014", "Change": 55013334},
+        {"Year": "2015", "Change": 111634307},
+        {"Year": "2016", "Change": -82104993},
+        {"Year": "2017", "Change": -13100298},
+        {"Year": "2018", "Change": -246243752},
+        {"Year": "2019", "Change": 233354461},
+        {"Year": "2020", "Change": 3801826},
+        {"Year": "2021", "Change": -73563141},
+        {"Year": "2022", "Change": -60524719},
+        {"Year": "End", "Change": 0}
+      ]
+    },
+    "width": 800,
+    "height": 500,
+    "transform": [
+      {"window": [{"op": "sum", "field": "Change", "as": "Total"}]},
+      {"window": [{"op": "lead", "field": "Year", "as": "nextYear"}]},
+      {
+        "calculate": "datum.nextYear === null ? datum.Year : datum.nextYear",
+        "as": "nextYear"
+      },
+      {
+        "calculate": "datum.Year === 'End' ? 0 : datum.Total - datum.Change",
+        "as": "previous_total"
+      },
+      {
+        "calculate": "datum.Year === 'End' ? datum.Total : datum.Change",
+        "as": "change_value"
+      },
+      {"calculate": "(datum.Total + datum.previous_total) / 2", "as": "center"}
+    ],
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "sort": null,
+        "axis": {"labelAngle": 0, "title": "Year"}
+      }
+    },
+    "layer": [
+      {
+        "mark": {"type": "bar", "size": 45},
+        "encoding": {
+          "y": {
+            "field": "previous_total",
+            "type": "quantitative",
+            "title": "Cumulative Area Burnt (ha)"
+          },
+          "y2": {"field": "Total"},
+          "color": {
+            "condition": [
+              {
+                "test": "datum.Year === '2012' || datum.Year === 'End'",
+                "value": "#f7e0b6"
+              },
+              {"test": "datum.Total < datum.previous_total", "value": "#f78a64"}
+            ],
+            "value": "#93c4aa"
+          },
+          "tooltip": [
+            {"field": "Year", "title": "Year"},
+            {"field": "change_value", "title": "Change in Area Burnt (ha)", "format": ",d"},
+            {"field": "Total", "title": "Cumulative Area Burnt (ha)", "format": ",d"}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "rule",
+          "color": "#404040",
+          "opacity": 1,
+          "strokeWidth": 2,
+          "xOffset": -22.5,
+          "x2Offset": 22.5
+        },
+        "encoding": {
+          "x2": {"field": "nextYear"},
+          "y": {"field": "Total", "type": "quantitative"}
+        }
+      }
+    ]
+  }
