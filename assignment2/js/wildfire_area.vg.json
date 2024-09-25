@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Yearly Burned Area by Land Cover",
+    "title": "Yearly Burned Area by Land Cover (2002-2022)",
     "width": 800,
     "height": 500,
     "data": {

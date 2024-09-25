@@ -1,5 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Change in Area Burnt (2012-2022)",
     "data": {
       "values": [
         {"Year": "2012", "Change": 1313012238},
