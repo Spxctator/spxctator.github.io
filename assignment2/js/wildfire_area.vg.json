@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Yearly Burned Area by Land Cover (World)",
+    "title": "Yearly Burned Area by Land Cover",
     "width": 800,
     "height": 500,
     "data": {
@@ -8,9 +8,6 @@
       "format": {"type": "csv"}
     },
     "transform": [
-      {
-        "filter": "datum.Entity === 'World'"
-      },
       {
         "fold": [
           "Other land",
@@ -20,15 +17,42 @@
           "Shrublands & grasslands"
         ],
         "as": ["Land Cover Type", "Burned Area"]
+      },
+      {"filter": {"param": "Region", "empty": false}},
+      {
+        "window": [
+          {"op": "sum", "field": "Burned Area", "as": "Total Burned Area"}
+        ],
+        "frame": [null, null],
+        "groupby": ["Year"]
+      },
+      {
+        "calculate": "datum['Burned Area'] / datum['Total Burned Area'] * 100",
+        "as": "Percentage"
       }
     ],
+    "selection": {
+      "Region": {
+        "type": "single",
+        "fields": ["Entity"],
+        "bind": {
+          "input": "select",
+          "options": [
+            "World",
+            "Africa",
+            "Europe",
+            "Oceania",
+            "North America",
+            "South America"
+          ],
+          "name": "Region: "
+        },
+        "init": {"Entity": "World"}
+      }
+    },
     "mark": "area",
     "encoding": {
-      "x": {
-        "field": "Year",
-        "type": "ordinal",
-        "title": "Year"
-      },
+      "x": {"field": "Year", "type": "ordinal", "title": "Year"},
       "y": {
         "field": "Burned Area",
         "type": "quantitative",
@@ -46,13 +70,7 @@
             "Savannas",
             "Shrublands & grasslands"
           ],
-          "range": [
-            "#1f77b4",
-            "#6E5380",
-            "#578145",
-            "#9A5129",
-            "#BC8E5A"
-          ]
+          "range": ["#1f77b4", "#6E5380", "#578145", "#9A5129", "#BC8E5A"]
         }
       },
       "tooltip": [
@@ -62,8 +80,13 @@
           "type": "quantitative",
           "title": "Burned Area (ha)",
           "format": ",.0f"
+        },
+        {
+          "field": "Percentage",
+          "type": "quantitative",
+          "title": "Percentage of Total (%)",
+          "format": ".2f"
         }
       ]
     }
   }
-  
