@@ -1,0 +1,69 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Yearly Burned Area by Land Cover (World)",
+    "width": 800,
+    "height": 500,
+    "data": {
+      "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/refs/heads/main/.data/annual-burned-area-by-landcover.csv",
+      "format": {"type": "csv"}
+    },
+    "transform": [
+      {
+        "filter": "datum.Entity === 'World'"
+      },
+      {
+        "fold": [
+          "Other land",
+          "Croplands",
+          "Forests",
+          "Savannas",
+          "Shrublands & grasslands"
+        ],
+        "as": ["Land Cover Type", "Burned Area"]
+      }
+    ],
+    "mark": "area",
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      "y": {
+        "field": "Burned Area",
+        "type": "quantitative",
+        "title": "Burned Area (ha)"
+      },
+      "color": {
+        "field": "Land Cover Type",
+        "type": "nominal",
+        "title": "Land Cover Type",
+        "scale": {
+          "domain": [
+            "Other land",
+            "Croplands",
+            "Forests",
+            "Savannas",
+            "Shrublands & grasslands"
+          ],
+          "range": [
+            "#1f77b4",
+            "#6E5380",
+            "#578145",
+            "#9A5129",
+            "#BC8E5A"
+          ]
+        }
+      },
+      "tooltip": [
+        {"field": "Year", "type": "ordinal", "title": "Year"},
+        {
+          "field": "Burned Area",
+          "type": "quantitative",
+          "title": "Burned Area (ha)",
+          "format": ",.0f"
+        }
+      ]
+    }
+  }
+  
