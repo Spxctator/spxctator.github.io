@@ -75,6 +75,7 @@
       },
       "tooltip": [
         {"field": "Year", "type": "ordinal", "title": "Year"},
+        {"field": "Land Cover Type", "type": "nominal", "title": "Land Cover Type"},
         {
           "field": "Burned Area",
           "type": "quantitative",
@@ -90,3 +91,4 @@
       ]
     }
   }
+  
