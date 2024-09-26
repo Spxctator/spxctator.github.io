@@ -7,47 +7,46 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            margin: 20px 0;
-            font-size: 36px;
-            color: #333;
-        }
-        .chart-container {
-            width: 100%;
-            margin: 20px 0;
-        }
-    </style>
 </head>
 <body>
     <h1>The Burning World</h1>
 
-    <div id="wildfire-map" class="chart-container"></div>
+    <h2>Wildfires</h2>
+    <div id="wildfire-map"></div>
 
-    <div id="temperature-map" class="chart-container"></div>
+    <h2>What Affects Wildfires?</h2>
+    <div>
+        <button onclick="loadChart('temperature-map')">Temperature</button>
+        <button onclick="loadChart('precipitation-map')">Precipitation</button>
+        <button onclick="loadChart('combined-bubble')">Compare</button>
+    </div>
+    <div id="chart-container"></div>
 
-    <div id="precipitation-map" class="chart-container"></div>
-
-    <div id="combined-bubble" class="chart-container"></div>
-
-    <div id="temperature-anomaly-bar" class="chart-container"></div>
-
-    <div id="wildfire-waterfall" class="chart-container"></div>
-
-    <div id="wildfire-area" class="chart-container"></div>
+    <h2>Wildfire Trends</h2>
+    <div id="temperature-anomaly-bar"></div>
+    <div id="wildfire-waterfall"></div>
+    <div id="wildfire-area"></div>
     
+    <footer>
+        Footer text.
+    </footer>
+
     <script>
         vegaEmbed('#wildfire-map', 'js/wildfire_map.vg.json').catch(console.error);
-        vegaEmbed('#temperature-map', 'js/temperature_map.vg.json').catch(console.error);
-        vegaEmbed('#precipitation-map', 'js/precipitation_map.vg.json').catch(console.error);
-        vegaEmbed('#combined-bubble', 'js/combined_bubble.vg.json').catch(console.error);
+
+        const charts = {
+            'temperature-map': 'js/temperature_map.vg.json',
+            'precipitation-map': 'js/precipitation_map.vg.json',
+            'combined-bubble': 'js/combined_bubble.vg.json'
+        };
+
+        function loadChart(chartId) {
+            vegaEmbed('#chart-container', charts[chartId]).catch(console.error);
+        }
+
+        // Load the default chart
+        loadChart('temperature-map');
+
         vegaEmbed('#temperature-anomaly-bar', 'js/temperature_anomaly_bar.vg.json').catch(console.error);
         vegaEmbed('#wildfire-waterfall', 'js/wildfire_waterfall.vg.json').catch(console.error);
         vegaEmbed('#wildfire-area', 'js/wildfire_area.vg.json').catch(console.error);
