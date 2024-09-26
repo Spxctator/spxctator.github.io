@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -17,6 +18,7 @@
             text-align: center;
         }
         h1, h2 {
+            font-family: 'Merriweather', serif;
             color: #d9534f;
         }
         .chart-container {
@@ -53,15 +55,22 @@
             max-height: 400px;
             width: 100%;
         }
+        .description {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
     <h1>The Burning World</h1>
 
     <h2>Wildfires</h2>
+    <div class="description">This map shows the global distribution of wildfires, highlighting the most affected regions.</div>
     <div id="wildfire-map" class="chart-container"></div>
 
     <h2>What Affects Wildfires?</h2>
+    <div class="description">Explore how temperature and precipitation influence wildfire occurrences.</div>
     <div>
         <button onclick="loadChart('temperature-map')">Temperature</button>
         <button onclick="loadChart('precipitation-map')">Precipitation</button>
@@ -70,6 +79,7 @@
     <div id="chart-container" class="chart-container"></div>
 
     <h2>Wildfire Trends</h2>
+    <div class="description">Analyze the trends in temperature anomalies and burnt areas over the years.</div>
     <div class="chart-row">
         <div id="temperature-anomaly-bar" class="chart-container"></div>
         <div id="wildfire-waterfall" class="chart-container"></div>
@@ -88,7 +98,7 @@
         function loadChart(chartId) {
             vegaEmbed('#chart-container', charts[chartId]).catch(console.error);
         }
-
+        
         loadChart('temperature-map');
 
         vegaEmbed('#temperature-anomaly-bar', 'js/temperature_anomaly_bar.vg.json').catch(console.error);
