@@ -28,7 +28,7 @@
         "filter": "datum['Normalized area burnt'] >= MinAreaBurnt"
       }
     ],
-    "mark": {"type": "point", "filled": true, "fillOpacity": 0.6},
+    "mark": {"type": "point", "filled": false, "fillOpacity": 0.6},
     "encoding": {
       "x": {
         "field": "Average surface temperature",
