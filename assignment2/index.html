@@ -16,10 +16,15 @@
             margin: 0;
             padding: 0;
             text-align: center;
+            font-weight: normal;
         }
         h1, h2 {
             font-family: 'Merriweather', serif;
             color: #d9534f;
+            font-weight: bold;
+        }
+        .description b {
+            font-weight: bold;
         }
         .chart-container {
             margin: 20px auto;
@@ -66,15 +71,15 @@
     <h1>The Burning World</h1>
 
     <h2>Wildfires</h2>
-    <div class="description">This map shows the global distribution of wildfires, highlighting the most affected regions.</div>
+    <div class="description">This map shows the global distribution of <b>wildfires</b>, highlighting the most affected regions.</div>
     <div id="wildfire-map" class="chart-container"></div>
 
     <h2>What Affects Wildfires?</h2>
-    <div class="description">Explore how temperature and precipitation influence wildfire occurrences.</div>
+    <div class="description">Explore how <b>temperature</b> and <b>precipitation</b> influence wildfire occurrences.</div>
     <div>
         <button onclick="loadChart('temperature-map')">Temperature</button>
         <button onclick="loadChart('precipitation-map')">Precipitation</button>
-        <button onclick="loadChart('combined-bubble')">Compare</button>
+        <button onclick="loadChart('combined-scatter')">Compare</button>
     </div>
     <div id="chart-container" class="chart-container"></div>
 
@@ -92,7 +97,7 @@
         const charts = {
             'temperature-map': 'js/temperature_map.vg.json',
             'precipitation-map': 'js/precipitation_map.vg.json',
-            'combined-bubble': 'js/combined_bubble.vg.json'
+            'combined-scatter': 'js/combined_scatter.vg.json'
         };
         function loadChart(chartId) {
             vegaEmbed('#chart-container', charts[chartId]).catch(console.error);

@@ -57,23 +57,21 @@
             fetch('js/wildfire_map.vg.json')
                 .then(response => response.json())
                 .then(spec => {
-                    // Remove previous graticule and ocean layers
+
                     spec.layer = spec.layer.filter(layer => !layer.data || (!layer.data.graticule && !layer.data.sphere));
 
-                    // Add graticule layer if visible
                     if (graticuleVisible) {
                         const graticuleLayer = {
                             "data": { "graticule": true },
                             "mark": {
                                 "type": "geoshape",
-                                "stroke": oceanVisible ? "black" : "lightgray", // Graticule is black if ocean is visible
+                                "stroke": oceanVisible ? "black" : "lightgray",
                                 "strokeWidth": 0.5
                             }
                         };
                         spec.layer.unshift(graticuleLayer);
                     }
-
-                    // Add ocean layer if visible
+                    
                     if (oceanVisible) {
                         const oceanLayer = {
                             "data": { "sphere": true },

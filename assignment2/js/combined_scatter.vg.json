@@ -7,9 +7,25 @@
       "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/refs/heads/main/.data/merged-data-2020.csv",
       "format": {"type": "csv"}
     },
+    "params": [
+      {
+        "name": "MinAreaBurnt",
+        "value": 0,
+        "bind": {
+          "input": "range",
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "name": "Minimum Normalized Area Burnt: "
+        }
+      }
+    ],
     "transform": [
       {
         "filter": "datum['Normalized area burnt'] != null && datum['Average surface temperature'] != null && datum['Average precipitation in depth (mm per year)'] != 0"
+      },
+      {
+        "filter": "datum['Normalized area burnt'] >= MinAreaBurnt"
       }
     ],
     "mark": {"type": "point", "filled": true, "fillOpacity": 0.6},
@@ -17,12 +33,14 @@
       "x": {
         "field": "Average surface temperature",
         "type": "quantitative",
-        "title": "Average Surface Temperature (°C)"
+        "title": "Average Surface Temperature (°C)",
+        "scale": {"domain": [-4, 30]}
       },
       "y": {
         "field": "Average precipitation in depth (mm per year)",
         "type": "quantitative",
-        "title": "Average Precipitation (mm per year)"
+        "title": "Average Precipitation (mm per year)",
+        "scale": {"domain": [0, 3600]}
       },
       "size": {
         "field": "Normalized area burnt",
@@ -53,3 +71,4 @@
       "color": {"field": "Entity", "type": "nominal", "legend": null}
     }
   }
+  
