@@ -65,6 +65,21 @@
             color: #555;
             margin-bottom: 10px;
         }
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f4f4f9;
+            color: #555;
+            font-size: 14px;
+            border-top: 1px solid #ddd;
+        }
+        footer a {
+            color: #337ab7;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -93,6 +108,16 @@
         <div class="description">Look at the different types of land cover being burnt in the world and its regions.</div>
         <div id="wildfire-area" class="chart-container"></div>
     </div>
+
+    <footer>
+        <p>Author: </p>
+        <p>Date Produced: </p>
+        <p>Data Sources: 
+            <a href="https://ourworldindata.org/wildfires">Wildfires</a>, 
+            <a href="https://ourworldindata.org/temperature-anomaly">Temperature</a>, 
+            <a href="https://ourworldindata.org/grapher/average-precipitation-per-year">Precipitation</a>
+        </p>
+    </footer>
 
     <script>
         vegaEmbed('#wildfire-map', 'js/wildfire_map.vg.json').catch(console.error);
