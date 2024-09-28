@@ -1,94 +1,75 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Yearly Burned Area by Land Cover (2002-2022)",
+    "title": "Area Burnt per Land Area by Wildfires (2020)",
     "width": 800,
     "height": 500,
-    "data": {
-      "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/refs/heads/main/.data/annual-burned-area-by-landcover.csv",
-      "format": {"type": "csv"}
-    },
-    "transform": [
+    "background": "white",
+    "layer": [
       {
-        "fold": [
-          "Other land",
-          "Croplands",
-          "Forests",
-          "Savannas",
-          "Shrublands & grasslands"
-        ],
-        "as": ["Land Cover Type", "Burned Area"]
-      },
-      {"filter": {"param": "Region", "empty": false}},
-      {
-        "window": [
-          {"op": "sum", "field": "Burned Area", "as": "Total Burned Area"}
-        ],
-        "frame": [null, null],
-        "groupby": ["Year"]
+        "data": {"sphere": true},
+        "mark": {"type": "geoshape", "fill": "lightblue"}
       },
       {
-        "calculate": "datum['Burned Area'] / datum['Total Burned Area'] * 100",
-        "as": "Percentage"
-      }
-    ],
-    "selection": {
-      "Region": {
-        "type": "single",
-        "fields": ["Entity"],
-        "bind": {
-          "input": "select",
-          "options": [
-            "World",
-            "Africa",
-            "Europe",
-            "Oceania",
-            "North America",
-            "South America"
-          ],
-          "name": "Region: "
+        "data": {"graticule": true},
+        "mark": {"type": "geoshape", "stroke": "gray", "strokeWidth": 0.5}
+      },
+      {
+        "projection": {"type": "equalEarth"},
+        "data": {
+          "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/ne_110m.json",
+          "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
         },
-        "init": {"Entity": "World"}
+        "transform": [
+          {
+            "lookup": "properties.ISO_A3",
+            "from": {
+              "data": {
+                "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/annual-area-burnt-by-wildfires-2020-n.csv",
+                "format": {"type": "csv"}
+              },
+              "key": "Code",
+              "fields": ["Normalized area burnt"]
+            }
+          },
+          {
+            "calculate": "toNumber(datum['Normalized area burnt']) + 0.001",
+            "as": "Area Burnt Ha per km²"
+          },
+          {
+            "calculate": "datum['Area Burnt Ha per km²'] - 0.001",
+            "as": "Original Area Burnt Ha per km²"
+          },
+          {
+            "calculate": "datum['Original Area Burnt Ha per km²'] == 0 ? 'No Data' : format(datum['Original Area Burnt Ha per km²'], '.3f')",
+            "as": "Tooltip Area Burnt Ha per km²"
+          }
+        ],
+        "mark": {"type": "geoshape"},
+        "encoding": {
+          "color": {
+            "field": "Area Burnt Ha per km²",
+            "type": "quantitative",
+            "scale": {
+              "domain": [0.001, 0.1, 40],
+              "range": ["#D3D3D3", "#feb24c", "#bd0026"],
+              "type": "log"
+            },
+            "title": ["Area Burnt per", "Land Area (Ha/km²)"]
+          },
+          "tooltip": [
+            {
+              "field": "properties.NAME",
+              "type": "nominal",
+              "title": "Country/Region"
+            },
+            {
+              "field": "Tooltip Area Burnt Ha per km²",
+              "type": "nominal",
+              "title": "Area Burnt per Land Area (Ha/km²)"
+            }
+          ]
+        }
       }
-    },
-    "mark": "area",
-    "encoding": {
-      "x": {"field": "Year", "type": "ordinal", "title": "Year"},
-      "y": {
-        "field": "Burned Area",
-        "type": "quantitative",
-        "title": "Burned Area (ha)"
-      },
-      "color": {
-        "field": "Land Cover Type",
-        "type": "nominal",
-        "title": "Land Cover Type",
-        "scale": {
-          "domain": [
-            "Other land",
-            "Croplands",
-            "Forests",
-            "Savannas",
-            "Shrublands & grasslands"
-          ],
-          "range": ["#1f77b4", "#6E5380", "#578145", "#9A5129", "#BC8E5A"]
-        }
-      },
-      "tooltip": [
-        {"field": "Year", "type": "ordinal", "title": "Year"},
-        {"field": "Land Cover Type", "type": "nominal", "title": "Land Cover Type"},
-        {
-          "field": "Burned Area",
-          "type": "quantitative",
-          "title": "Burned Area (ha)",
-          "format": ",.0f"
-        },
-        {
-          "field": "Percentage",
-          "type": "quantitative",
-          "title": "Percentage of Total (%)",
-          "format": ".2f"
-        }
-      ]
-    }
+    ]
   }
   

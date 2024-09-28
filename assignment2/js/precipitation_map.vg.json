@@ -6,12 +6,12 @@
     "background": "white",
     "layer": [
       {
-        "data": {"graticule": true},
-        "mark": {"type": "geoshape", "stroke": "lightgray", "strokeWidth": 0.5}
-      },
-      {
         "data": {"sphere": true},
         "mark": {"type": "geoshape", "fill": "lightblue"}
+      },
+      {
+        "data": {"graticule": true},
+        "mark": {"type": "geoshape", "stroke": "gray", "strokeWidth": 0.5}
       },
       {
         "projection": {"type": "equalEarth"},
@@ -92,3 +92,4 @@
       }
     ]
   }
+  
