@@ -130,7 +130,7 @@
         function loadChart(chartId) {
             vegaEmbed('#chart-container', charts[chartId]).catch(console.error);
         }
-        loadChart('temperature-map');
+        loadChart('combined-scatter');
 
         vegaEmbed('#temperature-anomaly-bar', 'js/temperature_anomaly_bar.vg.json').catch(console.error);
         vegaEmbed('#wildfire-waterfall', 'js/wildfire_waterfall.vg.json').catch(console.error);
