@@ -24,11 +24,9 @@
       {
         "filter": "datum['Normalized area burnt'] != null && datum['Average surface temperature'] != null && datum['Average precipitation in depth (mm per year)'] != 0"
       },
-      {
-        "filter": "datum['Normalized area burnt'] >= MinAreaBurnt"
-      }
+      {"filter": "datum['Normalized area burnt'] >= MinAreaBurnt"}
     ],
-    "mark": {"type": "point", "filled": false, "fillOpacity": 0.6},
+    "mark": {"type": "point", "filled": false, "fillOpacity": 0.6, "color": "black"},
     "encoding": {
       "x": {
         "field": "Average surface temperature",
@@ -68,7 +66,7 @@
           "format": ".2f"
         }
       ],
-      "color": {"field": "Entity", "type": "nominal", "legend": null}
+      "color": {"value": "black"}
     }
   }
   
