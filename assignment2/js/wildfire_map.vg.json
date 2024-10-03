@@ -50,9 +50,20 @@
             "field": "Area Burnt Ha per km²",
             "type": "quantitative",
             "scale": {
-              "domain": [0.001, 0.1, 40],
-              "range": ["#D3D3D3", "#feb24c", "#bd0026"],
-              "type": "log"
+              "domain": [0, 0.0011, 0.25, 1, 2.5, 7.5, 15, 25, 30, 40],
+              "range": [
+                "#FFFFFF",
+                "#D3D3D3",
+                "#ffffcc",
+                "#fed976",
+                "#feb24c",
+                "#fd8d3c",
+                "#fc4e2a",
+                "#e31a1c",
+                "#bd0026",
+                "#800026"
+              ],
+              "type": "threshold"
             },
             "title": ["Area Burnt per", "Land Area (Ha/km²)"]
           },
@@ -72,4 +83,3 @@
       }
     ]
   }
-  
