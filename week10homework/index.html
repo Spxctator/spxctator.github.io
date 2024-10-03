@@ -12,9 +12,11 @@
 
 <body>
 
+    <div id="wildfire-map"></div>
     <div id="combined-scatter"></div>
 
     <script>
+        vegaEmbed('#wildfire-map', 'js/wildfire_map.vg.json').catch(console.error);
         vegaEmbed('#combined-scatter', 'js/combined_scatter.vg.json').catch(console.error);
     </script>
 
