@@ -35,11 +35,9 @@
             background-color: #fff;
             padding: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: block;
-            clear: both;
         }
         button {
-            background-color: #5bc0de;
+            background-color: #6c757d;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -49,7 +47,7 @@
             font-size: 16px;
         }
         button:hover {
-            background-color: #31b0d5;
+            background-color: #5a6268;
         }
         .chart-row {
             display: flex;
@@ -65,6 +63,13 @@
             color: #555;
             margin-bottom: 10px;
         }
+        .citations {
+            display: none;
+            font-size: 14px;
+            color: #555;
+            margin-top: 20px;
+            text-align: center;
+        }
         footer {
             margin-top: 20px;
             padding: 10px;
@@ -72,6 +77,7 @@
             color: #555;
             font-size: 14px;
             border-top: 1px solid #ddd;
+            position: relative;
         }
         footer a {
             color: #337ab7;
@@ -79,6 +85,18 @@
         }
         footer a:hover {
             text-decoration: underline;
+        }
+        .citation-button {
+            background-color: #6c757d;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .citation-button:hover {
+            background-color: #5a6268;
         }
     </style>
 </head>
@@ -113,10 +131,16 @@
         <p>Author: </p>
         <p>Date Produced: </p>
         <p>Data Sources: 
-            <a href="https://ourworldindata.org/wildfires">Wildfires</a>, 
-            <a href="https://ourworldindata.org/temperature-anomaly">Temperature</a>, 
-            <a href="https://ourworldindata.org/grapher/average-precipitation-per-year">Precipitation</a>
+            <a href="https://ourworldindata.org/wildfires">Wildfires [1]</a>, 
+            <a href="https://ourworldindata.org/temperature-anomaly">Temperature [2]</a>, 
+            <a href="https://ourworldindata.org/grapher/average-precipitation-per-year">Precipitation [3]</a>
         </p>
+        <div class="citations" id="citations">
+            <p>[1] Veronika Samborska and Hannah Ritchie (2024) - “Wildfires” Published online at OurWorldinData.org. Retrieved from: 'https://ourworldindata.org/wildfires' [Online Resource]</p>
+            <p>[2] Veronika Samborska (2024) - “How much have temperatures risen in countries across the world?” Published online at OurWorldinData.org. Retrieved from: 'https://ourworldindata.org/temperature-anomaly' [Online Resource]</p>
+            <p>[3] Multiple sources compiled by World Bank (2024) – processed by Our World in Data. “Average annual precipitation” [dataset]. Food and Agriculture Organization of the United Nations (via World Bank), “World Development Indicators” [original data]. Retrieved October 4, 2024 from https://ourworldindata.org/grapher/average-precipitation-per-year</p>
+        </div>
+        <button class="citation-button" onclick="toggleCitations()">Show Citations</button>
     </footer>
 
     <script>
@@ -135,6 +159,18 @@
         vegaEmbed('#temperature-anomaly-bar', 'js/temperature_anomaly_bar.vg.json').catch(console.error);
         vegaEmbed('#wildfire-waterfall', 'js/wildfire_waterfall.vg.json').catch(console.error);
         vegaEmbed('#wildfire-area', 'js/wildfire_area.vg.json').catch(console.error);
+
+        function toggleCitations() {
+            const citations = document.getElementById('citations');
+            const button = document.querySelector('.citation-button');
+            if (citations.style.display === 'none' || citations.style.display === '') {
+                citations.style.display = 'block';
+                button.textContent = 'Hide Citations';
+            } else {
+                citations.style.display = 'none';
+                button.textContent = 'Show Citations';
+            }
+        }
     </script>
 </body>
 </html>
