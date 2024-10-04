@@ -26,47 +26,75 @@
       },
       {"filter": "datum['Normalized area burnt'] >= MinAreaBurnt"}
     ],
-    "mark": {"type": "point", "filled": false, "fillOpacity": 0.6, "color": "black"},
-    "encoding": {
-      "x": {
-        "field": "Average surface temperature",
-        "type": "quantitative",
-        "title": "Average Surface Temperature (°C)",
-        "scale": {"domain": [-4, 30]}
-      },
-      "y": {
-        "field": "Average precipitation in depth (mm per year)",
-        "type": "quantitative",
-        "title": "Average Precipitation (mm per year)",
-        "scale": {"domain": [0, 3600]}
-      },
-      "size": {
-        "field": "Normalized area burnt",
-        "type": "quantitative",
-        "title": "Normalized Area Burnt",
-        "scale": {"range": [0, 2000]}
-      },
-      "tooltip": [
-        {"field": "Entity", "type": "nominal", "title": "Country/Region"},
-        {
-          "field": "Average surface temperature",
-          "type": "quantitative",
-          "title": "Temperature (°C)",
-          "format": ".2f"
+    "layer": [
+      {
+        "mark": {
+          "type": "point",
+          "filled": false,
+          "fillOpacity": 0.6,
+          "color": "black"
         },
-        {
-          "field": "Average precipitation in depth (mm per year)",
-          "type": "quantitative",
-          "title": "Precipitation (mm/year)"
-        },
-        {
-          "field": "Normalized area burnt",
-          "type": "quantitative",
-          "title": "Area Burnt per Land Area (Ha/km²)",
-          "format": ".2f"
+        "encoding": {
+          "x": {
+            "field": "Average surface temperature",
+            "type": "quantitative",
+            "title": "Average Surface Temperature (°C)",
+            "scale": {"domain": [-4, 30]}
+          },
+          "y": {
+            "field": "Average precipitation in depth (mm per year)",
+            "type": "quantitative",
+            "title": "Average Precipitation (mm per year)",
+            "scale": {"domain": [0, 3600]}
+          },
+          "size": {
+            "field": "Normalized area burnt",
+            "type": "quantitative",
+            "title": "Normalized Area Burnt",
+            "scale": {"range": [0, 2000]}
+          },
+          "tooltip": [
+            {"field": "Entity", "type": "nominal", "title": "Country/Region"},
+            {
+              "field": "Average surface temperature",
+              "type": "quantitative",
+              "title": "Temperature (°C)",
+              "format": ".2f"
+            },
+            {
+              "field": "Average precipitation in depth (mm per year)",
+              "type": "quantitative",
+              "title": "Precipitation (mm/year)"
+            },
+            {
+              "field": "Normalized area burnt",
+              "type": "quantitative",
+              "title": "Area Burnt per Land Area (Ha/km²)",
+              "format": ".2f"
+            }
+          ],
+          "color": {"value": "black"}
         }
-      ],
-      "color": {"value": "black"}
-    }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "dx": 25,
+          "dy": 0,
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "color": "#d9534f"
+        },
+        "encoding": {
+          "text": {"value": "MAX"},
+          "x": {"field": "Average surface temperature", "type": "quantitative"},
+          "y": {
+            "field": "Average precipitation in depth (mm per year)",
+            "type": "quantitative"
+          }
+        },
+        "transform": [{"filter": "datum['Entity'] == 'South Sudan'"}]
+      }
+    ]
   }
-  
