@@ -37,7 +37,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         button {
-            background-color: #007bff; /* Default blue color */
+            background-color: #007bff;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -50,7 +50,7 @@
             background-color: #0056b3;
         }
         .selected {
-            background-color: #28a745; /* Green color when selected */
+            background-color: #28a745;
         }
         .chart-row {
             display: flex;
@@ -163,9 +163,9 @@
         function updateButtonStyles(selectedChart) {
             const buttons = document.querySelectorAll('button');
             buttons.forEach(button => {
-                button.classList.remove('selected'); // Remove selected class from all buttons
+                button.classList.remove('selected');
             });
-            document.getElementById(`${selectedChart}-btn`).classList.add('selected'); // Add selected class to the clicked button
+            document.getElementById(`${selectedChart}-btn`).classList.add('selected');
         }
 
         loadChart('combined-scatter');
