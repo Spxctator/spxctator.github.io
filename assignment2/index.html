@@ -37,7 +37,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         button {
-            background-color: #6c757d;
+            background-color: #007bff; /* Default blue color */
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -47,7 +47,10 @@
             font-size: 16px;
         }
         button:hover {
-            background-color: #5a6268;
+            background-color: #0056b3;
+        }
+        .selected {
+            background-color: #28a745; /* Green color when selected */
         }
         .chart-row {
             display: flex;
@@ -110,9 +113,9 @@
     <h2>What Affects Wildfires?</h2>
     <div class="description">Explore how <b>temperature</b> and <b>precipitation</b> influence wildfire occurrences.</div>
     <div>
-        <button onclick="loadChart('temperature-map')">Temperature</button>
-        <button onclick="loadChart('combined-scatter')">Compare</button>
-        <button onclick="loadChart('precipitation-map')">Precipitation</button>
+        <button id="temperature-map-btn" onclick="loadChart('temperature-map')">Temperature</button>
+        <button id="combined-scatter-btn" class="selected" onclick="loadChart('combined-scatter')">Compare</button>
+        <button id="precipitation-map-btn" onclick="loadChart('precipitation-map')">Precipitation</button>
     </div>
     <div id="chart-container" class="chart-container"></div>
 
@@ -151,9 +154,20 @@
             'precipitation-map': 'js/precipitation_map.vg.json',
             'combined-scatter': 'js/combined_scatter.vg.json'
         };
+
         function loadChart(chartId) {
             vegaEmbed('#chart-container', charts[chartId]).catch(console.error);
+            updateButtonStyles(chartId);
         }
+
+        function updateButtonStyles(selectedChart) {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.classList.remove('selected'); // Remove selected class from all buttons
+            });
+            document.getElementById(`${selectedChart}-btn`).classList.add('selected'); // Add selected class to the clicked button
+        }
+
         loadChart('combined-scatter');
 
         vegaEmbed('#temperature-anomaly-bar', 'js/temperature_anomaly_bar.vg.json').catch(console.error);
