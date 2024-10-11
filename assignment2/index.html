@@ -18,13 +18,36 @@
             text-align: center;
             font-weight: normal;
         }
-        h1, h2 {
+        .title-container {
+            width: 100%;
+            background-color: #880808;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        h1 {
+            font-family: 'Merriweather', serif;
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 48px; /* Larger h1 */
+        }
+        h2 {
             font-family: 'Merriweather', serif;
             color: #d9534f;
             font-weight: bold;
+            font-size: 32px; /* Larger h2 */
+        }
+        h3 {
+            font-family: 'Merriweather', serif;
+            color: #880808;
+            font-size: 24px;
+            margin-bottom: 10px;
         }
         .description b {
             font-weight: bold;
+        }
+        .content {
+            margin: 0 100px;
         }
         .chart-container {
             margin: 20px auto;
@@ -34,8 +57,17 @@
             border-radius: 8px;
             background-color: #fff;
             padding: 10px;
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+        }
+        .chart-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 4px solid #880808;
+            border-radius: 8px;
+            background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         button {
             background-color: #007bff;
             color: #fff;
@@ -104,44 +136,59 @@
     </style>
 </head>
 <body>
-    <h1>The Burning World</h1>
-
-    <h2>Wildfires</h2>
-    <div class="description">This map shows the global distribution of <b>wildfires</b>, highlighting the most affected regions.</div>
-    <div id="wildfire-map" class="chart-container"></div>
-
-    <h2>What Affects Wildfires?</h2>
-    <div class="description">Explore how <b>temperature</b> and <b>precipitation</b> influence wildfire occurrences.</div>
-    <div>
-        <button id="temperature-map-btn" onclick="loadChart('temperature-map')">Temperature</button>
-        <button id="combined-scatter-btn" class="selected" onclick="loadChart('combined-scatter')">Compare</button>
-        <button id="precipitation-map-btn" onclick="loadChart('precipitation-map')">Precipitation</button>
+    <div class="title-container">
+        <h1>The Burning World</h1>
     </div>
-    <div id="chart-container" class="chart-container"></div>
 
-    <h2>Wildfire Trends</h2>
-    <div class="chart-row">
-        <div class="description">The overall surface temperature of the world has been on a rise with no signs of slowing down.</div>
-        <div class="description">When do we expect the whole world to be on fire?</div>
-        <div id="temperature-anomaly-bar" class="chart-container"></div>
-        <div class="description">Despite the increasing temperatures, the amount of wildfires throughout the world has been on an overall decline.</div>
-        <div id="wildfire-waterfall" class="chart-container"></div>
-        <div class="description">Look at the different types of land cover being burnt in the world and its regions.</div>
-        <div id="wildfire-area" class="chart-container"></div>
+    <div class="content">
+        <h2>Wildfires</h2>
+        <div class="chart-section">
+            <h3>Global Wildfire Distribution</h3>
+            <div class="description">This map shows the global distribution of <b>wildfires</b>, highlighting the most affected regions.</div>
+            <div id="wildfire-map" class="chart-container"></div>
+        </div>
+
+        <h2>What Affects Wildfires?</h2>
+        <div class="description">Explore how <b>temperature</b> and <b>precipitation</b> influence wildfire occurrences.</div>
+        <div>
+            <button id="temperature-map-btn" onclick="loadChart('temperature-map')">Temperature</button>
+            <button id="combined-scatter-btn" class="selected" onclick="loadChart('combined-scatter')">Compare</button>
+            <button id="precipitation-map-btn" onclick="loadChart('precipitation-map')">Precipitation</button>
+        </div>
+        <div class="chart-section">
+            <h3>Impact of Temperature and Precipitation</h3>
+            <div id="chart-container" class="chart-container"></div>
+        </div>
+
+        <h2>Wildfire Trends</h2>
+        <div class="chart-section">
+            <h3>Temperature Anomaly</h3>
+            <div class="description">The overall surface temperature of the world has been on a rise with no signs of slowing down.</div>
+            <div class="description">When do we expect the whole world to be on fire?</div>
+            <div id="temperature-anomaly-bar" class="chart-container"></div>
+            <h3>Wildfire Trends Over Time</h3>
+            <div class="description">Despite the increasing temperatures, the amount of wildfires throughout the world has been on an overall decline.</div>
+            <div id="wildfire-waterfall" class="chart-container"></div>
+        </div>
+        <div class="chart-section">
+            <h3>Burnt Land Cover Types</h3>
+            <div class="description">Look at the different types of land cover being burnt in the world and its regions.</div>
+            <div id="wildfire-area" class="chart-container"></div>
+        </div>
     </div>
 
     <footer>
-        <p>Author: </p>
-        <p>Date Produced: </p>
+        <p>Author: to fill before submission</p>
+        <p>Date Produced: to fill before submission</p>
         <p>Data Sources: 
-            <a href="https://ourworldindata.org/wildfires">Wildfires [1]</a>, 
-            <a href="https://ourworldindata.org/temperature-anomaly">Temperature [2]</a>, 
-            <a href="https://ourworldindata.org/grapher/average-precipitation-per-year">Precipitation [3]</a>
+            <a href="https://ourworldindata.org/wildfires">Wildfires </a>, 
+            <a href="https://ourworldindata.org/temperature-anomaly">Temperature </a>, 
+            <a href="https://ourworldindata.org/grapher/average-precipitation-per-year">Precipitation </a>
         </p>
         <div class="citations" id="citations">
-            <p>[1] Veronika Samborska and Hannah Ritchie (2024) - “Wildfires” Published online at OurWorldinData.org. Retrieved from: 'https://ourworldindata.org/wildfires' [Online Resource]</p>
-            <p>[2] Veronika Samborska (2024) - “How much have temperatures risen in countries across the world?” Published online at OurWorldinData.org. Retrieved from: 'https://ourworldindata.org/temperature-anomaly' [Online Resource]</p>
-            <p>[3] Multiple sources compiled by World Bank (2024) – processed by Our World in Data. “Average annual precipitation” [dataset]. Food and Agriculture Organization of the United Nations (via World Bank), “World Development Indicators” [original data]. Retrieved October 4, 2024 from https://ourworldindata.org/grapher/average-precipitation-per-year</p>
+            <p> Veronika Samborska and Hannah Ritchie (2024) - “Wildfires” Published online at OurWorldinData.org. Retrieved from: 'https://ourworldindata.org/wildfires' [Online Resource]</p>
+            <p> Veronika Samborska (2024) - “How much have temperatures risen in countries across the world?” Published online at OurWorldinData.org. Retrieved from: 'https://ourworldindata.org/temperature-anomaly' [Online Resource]</p>
+            <p> Multiple sources compiled by World Bank (2024) – processed by Our World in Data. “Average annual precipitation” [dataset]. Food and Agriculture Organization of the United Nations (via World Bank), “World Development Indicators” [original data]. Retrieved October 4, 2024 from https://ourworldindata.org/grapher/average-precipitation-per-year</p>
         </div>
         <button class="citation-button" onclick="toggleCitations()">Show Citations</button>
     </footer>
@@ -160,31 +207,31 @@
             updateButtonStyles(chartId);
         }
 
+        loadChart('combined-scatter');
+
         function updateButtonStyles(selectedChart) {
             const buttons = document.querySelectorAll('button');
             buttons.forEach(button => {
                 button.classList.remove('selected');
             });
-            document.getElementById(`${selectedChart}-btn`).classList.add('selected');
+
+            if (selectedChart === 'temperature-map') {
+                document.getElementById('temperature-map-btn').classList.add('selected');
+            } else if (selectedChart === 'precipitation-map') {
+                document.getElementById('precipitation-map-btn').classList.add('selected');
+            } else {
+                document.getElementById('combined-scatter-btn').classList.add('selected');
+            }
         }
 
-        loadChart('combined-scatter');
+        function toggleCitations() {
+            const citations = document.getElementById('citations');
+            citations.style.display = citations.style.display === 'none' || citations.style.display === '' ? 'block' : 'none';
+        }
 
         vegaEmbed('#temperature-anomaly-bar', 'js/temperature_anomaly_bar.vg.json').catch(console.error);
         vegaEmbed('#wildfire-waterfall', 'js/wildfire_waterfall.vg.json').catch(console.error);
         vegaEmbed('#wildfire-area', 'js/wildfire_area.vg.json').catch(console.error);
-
-        function toggleCitations() {
-            const citations = document.getElementById('citations');
-            const button = document.querySelector('.citation-button');
-            if (citations.style.display === 'none' || citations.style.display === '') {
-                citations.style.display = 'block';
-                button.textContent = 'Hide Citations';
-            } else {
-                citations.style.display = 'none';
-                button.textContent = 'Show Citations';
-            }
-        }
     </script>
 </body>
 </html>
