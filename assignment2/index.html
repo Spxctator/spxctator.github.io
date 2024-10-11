@@ -57,7 +57,6 @@
             border-radius: 8px;
             background-color: #fff;
             padding: 10px;
-            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
         }
         .chart-section {
             margin: 20px 0;
@@ -67,7 +66,6 @@
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
         button {
             background-color: #007bff;
             color: #fff;
@@ -112,7 +110,6 @@
             color: #555;
             font-size: 14px;
             border-top: 1px solid #ddd;
-            position: relative;
         }
         footer a {
             color: #337ab7;
@@ -133,6 +130,9 @@
         .citation-button:hover {
             background-color: #5a6268;
         }
+        .major-section {
+            margin-bottom: 60px;
+        }
     </style>
 </head>
 <body>
@@ -141,43 +141,49 @@
     </div>
 
     <div class="content">
-        <h2>Wildfires</h2>
-        <div class="chart-section">
-            <h3>Global Wildfire Distribution</h3>
-            <div class="description">This map shows the global distribution of <b>wildfires</b>, highlighting the most affected regions.</div>
-            <div id="wildfire-map" class="chart-container"></div>
-        </div>
-
-        <h2>What Affects Wildfires?</h2>
-        <div class="description">Explore how <b>temperature</b> and <b>precipitation</b> influence wildfire occurrences.</div>
-        <div>
-            <button id="temperature-map-btn" onclick="loadChart('temperature-map')">Temperature</button>
-            <button id="combined-scatter-btn" class="selected" onclick="loadChart('combined-scatter')">Compare</button>
-            <button id="precipitation-map-btn" onclick="loadChart('precipitation-map')">Precipitation</button>
-        </div>
-
-        <div class="chart-section">
-            <h3 id="chart-title">Comparison of Temperature and Precipitation Effects</h3>
-            <div id="chart-description" class="description">
-                This scatter plot allows you to explore how the combination of <b>temperature</b> and <b>precipitation</b> impacts wildfires over time and across regions.
+        <div class="major-section">
+            <h2>Wildfires</h2>
+            <div class="chart-section">
+                <h3>Global Wildfire Distribution</h3>
+                <div class="description">This map shows the global distribution of <b>wildfires</b>, highlighting the most affected regions.</div>
+                <div id="wildfire-map" class="chart-container"></div>
             </div>
-            <div id="chart-container" class="chart-container"></div>
         </div>
 
-        <h2>Wildfire Trends</h2>
-        <div class="chart-section">
-            <h3>Temperature Anomaly</h3>
-            <div class="description">The overall surface temperature of the world has been on a rise with no signs of slowing down.</div>
-            <div class="description">When do we expect the whole world to be on fire?</div>
-            <div id="temperature-anomaly-bar" class="chart-container"></div>
-            <h3>Wildfire Trends Over Time</h3>
-            <div class="description">Despite the increasing temperatures, the amount of wildfires throughout the world has been on an overall decline.</div>
-            <div id="wildfire-waterfall" class="chart-container"></div>
+        <div class="major-section">
+            <h2>What Affects Wildfires?</h2>
+            <div class="description">Explore how <b>temperature</b> and <b>precipitation</b> influence wildfire occurrences.</div>
+            <div>
+                <button id="temperature-map-btn" onclick="loadChart('temperature-map')">Temperature</button>
+                <button id="combined-scatter-btn" class="selected" onclick="loadChart('combined-scatter')">Compare</button>
+                <button id="precipitation-map-btn" onclick="loadChart('precipitation-map')">Precipitation</button>
+            </div>
+
+            <div class="chart-section">
+                <h3 id="chart-title">Comparison of Temperature and Precipitation Effects</h3>
+                <div id="chart-description" class="description">
+                    This scatter plot allows you to explore how the combination of <b>temperature</b> and <b>precipitation</b> impacts wildfires over time and across regions.
+                </div>
+                <div id="chart-container" class="chart-container"></div>
+            </div>
         </div>
-        <div class="chart-section">
-            <h3>Burnt Land Cover Types</h3>
-            <div class="description">Look at the different types of land cover being burnt in the world and its regions.</div>
-            <div id="wildfire-area" class="chart-container"></div>
+
+        <div class="major-section">
+            <h2>Wildfire Trends</h2>
+            <div class="chart-section">
+                <h3>Temperature Anomaly</h3>
+                <div class="description">The overall surface temperature of the world has been on a rise with no signs of slowing down.</div>
+                <div class="description">When do we expect the whole world to be on fire?</div>
+                <div id="temperature-anomaly-bar" class="chart-container"></div>
+                <h3>Wildfire Trends Over Time</h3>
+                <div class="description">Despite the increasing temperatures, the amount of wildfires throughout the world has been on an overall decline.</div>
+                <div id="wildfire-waterfall" class="chart-container"></div>
+            </div>
+            <div class="chart-section">
+                <h3>Burnt Land Cover Types</h3>
+                <div class="description">Look at the different types of land cover being burnt in the world and its regions.</div>
+                <div id="wildfire-area" class="chart-container"></div>
+            </div>
         </div>
     </div>
 
@@ -203,75 +209,45 @@
         const charts = {
             'temperature-map': {
                 title: 'Impact of Temperature on Wildfires',
-                description: 'This map shows how <b>temperature</b> variations affect the likelihood and distribution of wildfires across different regions.',
-                path: 'js/temperature_map.vg.json'
+                description: 'This map shows how <b>temperature</b> influences the occurrence of wildfires globally.',
+                spec: 'js/temperature_map.vg.json'
             },
             'precipitation-map': {
                 title: 'Impact of Precipitation on Wildfires',
-                description: 'This map illustrates how <b>precipitation</b> levels influence the occurrence and severity of wildfires globally.',
-                path: 'js/precipitation_map.vg.json'
+                description: 'This map shows how <b>precipitation</b> influences the occurrence of wildfires globally.',
+                spec: 'js/precipitation_map.vg.json'
             },
             'combined-scatter': {
                 title: 'Comparison of Temperature and Precipitation Effects',
                 description: 'This scatter plot allows you to explore how the combination of <b>temperature</b> and <b>precipitation</b> impacts wildfires over time and across regions.',
-                path: 'js/combined_scatter.vg.json'
+                spec: 'js/combined_scatter.vg.json'
             }
         };
 
-        function loadChart(chartId) {
-            const chartData = charts[chartId];
-            
-            // Update chart title and description
-            document.getElementById('chart-title').innerText = chartData.title;
-            document.getElementById('chart-description').innerHTML = chartData.description;
-            
-            // Load the selected chart
-            vegaEmbed('#chart-container', chartData.path).catch(console.error);
+        function loadChart(chartKey) {
+            const chart = charts[chartKey];
+            document.getElementById('chart-title').innerHTML = chart.title;
+            document.getElementById('chart-description').innerHTML = chart.description;
+            vegaEmbed('#chart-container', chart.spec).catch(console.error);
 
-            // Update button styles
-            updateButtonStyles(chartId);
+            document.querySelectorAll('button').forEach(btn => btn.classList.remove('selected'));
+            document.getElementById(`${chartKey}-btn`).classList.add('selected');
         }
 
-        loadChart('combined-scatter');  // Initially load the comparison chart
-
-        function updateButtonStyles(selectedChart) {
-            const buttons = document.querySelectorAll('button');
-            buttons.forEach(button => {
-                button.classList.remove('selected');
-            });
-
-            if (selectedChart === 'temperature-map') {
-                document.getElementById('temperature-map-btn').classList.add('selected');
-            } else if (selectedChart === 'precipitation-map') {
-                document.getElementById('precipitation-map-btn').classList.add('selected');
-            } else {
-                document.getElementById('combined-scatter-btn').classList.add('selected');
-            }
-        }
-
-        function updateButtonStyles(selectedChart) {
-            const buttons = document.querySelectorAll('button');
-            buttons.forEach(button => {
-                button.classList.remove('selected');
-            });
-
-            if (selectedChart === 'temperature-map') {
-                document.getElementById('temperature-map-btn').classList.add('selected');
-            } else if (selectedChart === 'precipitation-map') {
-                document.getElementById('precipitation-map-btn').classList.add('selected');
-            } else {
-                document.getElementById('combined-scatter-btn').classList.add('selected');
-            }
-        }
-
-        function toggleCitations() {
-            const citations = document.getElementById('citations');
-            citations.style.display = citations.style.display === 'none' || citations.style.display === '' ? 'block' : 'none';
-        }
+        loadChart('combined-scatter');
 
         vegaEmbed('#temperature-anomaly-bar', 'js/temperature_anomaly_bar.vg.json').catch(console.error);
         vegaEmbed('#wildfire-waterfall', 'js/wildfire_waterfall.vg.json').catch(console.error);
         vegaEmbed('#wildfire-area', 'js/wildfire_area.vg.json').catch(console.error);
+
+        function toggleCitations() {
+            const citationContainer = document.getElementById('citations');
+            if (citationContainer.style.display === 'none') {
+                citationContainer.style.display = 'block';
+            } else {
+                citationContainer.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
