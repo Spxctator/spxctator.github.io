@@ -155,8 +155,12 @@
             <button id="combined-scatter-btn" class="selected" onclick="loadChart('combined-scatter')">Compare</button>
             <button id="precipitation-map-btn" onclick="loadChart('precipitation-map')">Precipitation</button>
         </div>
+
         <div class="chart-section">
-            <h3>Impact of Temperature and Precipitation</h3>
+            <h3 id="chart-title">Comparison of Temperature and Precipitation Effects</h3>
+            <div id="chart-description" class="description">
+                This scatter plot allows you to explore how the combination of <b>temperature</b> and <b>precipitation</b> impacts wildfires over time and across regions.
+            </div>
             <div id="chart-container" class="chart-container"></div>
         </div>
 
@@ -197,17 +201,53 @@
         vegaEmbed('#wildfire-map', 'js/wildfire_map.vg.json').catch(console.error);
 
         const charts = {
-            'temperature-map': 'js/temperature_map.vg.json',
-            'precipitation-map': 'js/precipitation_map.vg.json',
-            'combined-scatter': 'js/combined_scatter.vg.json'
+            'temperature-map': {
+                title: 'Impact of Temperature on Wildfires',
+                description: 'This map shows how <b>temperature</b> variations affect the likelihood and distribution of wildfires across different regions.',
+                path: 'js/temperature_map.vg.json'
+            },
+            'precipitation-map': {
+                title: 'Impact of Precipitation on Wildfires',
+                description: 'This map illustrates how <b>precipitation</b> levels influence the occurrence and severity of wildfires globally.',
+                path: 'js/precipitation_map.vg.json'
+            },
+            'combined-scatter': {
+                title: 'Comparison of Temperature and Precipitation Effects',
+                description: 'This scatter plot allows you to explore how the combination of <b>temperature</b> and <b>precipitation</b> impacts wildfires over time and across regions.',
+                path: 'js/combined_scatter.vg.json'
+            }
         };
 
         function loadChart(chartId) {
-            vegaEmbed('#chart-container', charts[chartId]).catch(console.error);
+            const chartData = charts[chartId];
+            
+            // Update chart title and description
+            document.getElementById('chart-title').innerText = chartData.title;
+            document.getElementById('chart-description').innerHTML = chartData.description;
+            
+            // Load the selected chart
+            vegaEmbed('#chart-container', chartData.path).catch(console.error);
+
+            // Update button styles
             updateButtonStyles(chartId);
         }
 
-        loadChart('combined-scatter');
+        loadChart('combined-scatter');  // Initially load the comparison chart
+
+        function updateButtonStyles(selectedChart) {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.classList.remove('selected');
+            });
+
+            if (selectedChart === 'temperature-map') {
+                document.getElementById('temperature-map-btn').classList.add('selected');
+            } else if (selectedChart === 'precipitation-map') {
+                document.getElementById('precipitation-map-btn').classList.add('selected');
+            } else {
+                document.getElementById('combined-scatter-btn').classList.add('selected');
+            }
+        }
 
         function updateButtonStyles(selectedChart) {
             const buttons = document.querySelectorAll('button');
