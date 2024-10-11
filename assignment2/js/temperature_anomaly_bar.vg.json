@@ -7,29 +7,47 @@
       "url": "https://raw.githubusercontent.com/Spxctator/spxctator.github.io/main/.data/global-temperature-anomalies-1990-2020.csv",
       "format": {"type": "csv"}
     },
-    "mark": "bar",
-    "encoding": {
-      "x": {"field": "Year", "type": "ordinal", "title": "Year"},
-      "y": {
-        "field": "Temperature anomaly",
-        "type": "quantitative",
-        "title": "Temperature Anomaly (°C)"
-      },
-      "color": {
-        "condition": {
-          "test": "datum['Temperature anomaly'] >= 0",
-          "value": "#e45756"
-        },
-        "value": "#1f77b4"
-      },
-      "tooltip": [
-        {"field": "Year", "type": "ordinal", "title": "Year"},
-        {
-          "field": "Temperature anomaly",
-          "type": "quantitative",
-          "title": "Anomaly (°C)",
-          "format": ".2f"
+    "layer": [
+      {
+        "mark": "bar",
+        "encoding": {
+          "x": {"field": "Year", "type": "ordinal", "title": "Year"},
+          "y": {
+            "field": "Temperature anomaly",
+            "type": "quantitative",
+            "title": "Temperature Anomaly (°C)"
+          },
+          "color": {
+            "condition": {
+              "test": "datum['Temperature anomaly'] >= 0",
+              "value": "#e45756"
+            },
+            "value": "#1f77b4"
+          },
+          "tooltip": [
+            {"field": "Year", "type": "ordinal", "title": "Year"},
+            {
+              "field": "Temperature anomaly",
+              "type": "quantitative",
+              "title": "Anomaly (°C)",
+              "format": ".2f"
+            }
+          ]
         }
-      ]
-    }
+      },
+      {
+        "mark": {"type": "line", "color": "rebeccapurple"},
+        "transform": [
+          {
+            "regression": "Temperature anomaly",
+            "on": "Year"
+          }
+        ],
+        "encoding": {
+          "x": {"field": "Year", "type": "quantitative"},
+          "y": {"field": "Temperature anomaly", "type": "quantitative"}
+        }
+      }
+    ]
   }
+  
