@@ -39,9 +39,10 @@
         "mark": {"type": "line", "color": "rebeccapurple"},
         "transform": [{"regression": "Temperature anomaly", "on": "Year"}],
         "encoding": {
-          "x": {"field": "Year", "type": "quantitative"},
+          "x": {"field": "Year", "type": "ordinal"},
           "y": {"field": "Temperature anomaly", "type": "quantitative"}
         }
       }
     ]
   }
+  

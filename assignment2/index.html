@@ -145,14 +145,13 @@
             <h2>Wildfires</h2>
             <div class="chart-section">
                 <h3>Global Wildfire Distribution</h3>
-                <div class="description">This map shows the global distribution of <b>wildfires</b>, highlighting the most affected regions.</div>
+                <div class="description"></div>
                 <div id="wildfire-map" class="chart-container"></div>
             </div>
         </div>
 
         <div class="major-section">
             <h2>What Affects Wildfires?</h2>
-            <div class="description">Explore how <b>temperature</b> and <b>precipitation</b> influence wildfire occurrences.</div>
             <div>
                 <button id="temperature-map-btn" onclick="loadChart('temperature-map')">Temperature</button>
                 <button id="combined-scatter-btn" class="selected" onclick="loadChart('combined-scatter')">Compare</button>
@@ -162,7 +161,7 @@
             <div class="chart-section">
                 <h3 id="chart-title">Comparison of Temperature and Precipitation Effects</h3>
                 <div id="chart-description" class="description">
-                    This scatter plot allows you to explore how the combination of <b>temperature</b> and <b>precipitation</b> impacts wildfires over time and across regions.
+                    Explore how the combination of <b>temperature</b> and <b>precipitation</b> impacts wildfires across regions.
                 </div>
                 <div id="chart-container" class="chart-container"></div>
             </div>
@@ -172,11 +171,11 @@
             <h2>Wildfire Trends</h2>
             <div class="chart-section">
                 <h3>Temperature Anomaly</h3>
-                <div class="description">The overall surface temperature of the world has been on a rise with no signs of slowing down.</div>
+                <div class="description">As we can see from the trend line, the overall surface temperature of the world has been on a rise with no signs of slowing down.</div>
                 <div class="description">When do we expect the whole world to be on fire?</div>
                 <div id="temperature-anomaly-bar" class="chart-container"></div>
                 <h3>Wildfire Trends Over Time</h3>
-                <div class="description">Despite the increasing temperatures, the amount of wildfires throughout the world has been on an overall decline.</div>
+                <div class="description">Despite the increasing temperatures, the <b>amount of wildfires</b> throughout the world has been on an <b>overall decline</b>.</div>
                 <div id="wildfire-waterfall" class="chart-container"></div>
             </div>
             <div class="chart-section">
@@ -209,17 +208,17 @@
         const charts = {
             'temperature-map': {
                 title: 'Impact of Temperature on Wildfires',
-                description: 'This map shows how <b>temperature</b> influences the occurrence of wildfires globally.',
+                description: 'Explore how <b>temperature</b> influences the occurrence of wildfires globally.',
                 spec: 'js/temperature_map.vg.json'
             },
             'precipitation-map': {
                 title: 'Impact of Precipitation on Wildfires',
-                description: 'This map shows how <b>precipitation</b> influences the occurrence of wildfires globally.',
+                description: 'Explore how <b>precipitation</b> influences the occurrence of wildfires globally.',
                 spec: 'js/precipitation_map.vg.json'
             },
             'combined-scatter': {
                 title: 'Comparison of Temperature and Precipitation Effects',
-                description: 'This scatter plot allows you to explore how the combination of <b>temperature</b> and <b>precipitation</b> impacts wildfires over time and across regions.',
+                description: 'Explore how the combination of <b>temperature</b> and <b>precipitation</b> impacts wildfires across regions.',
                 spec: 'js/combined_scatter.vg.json'
             }
         };
@@ -242,10 +241,10 @@
 
         function toggleCitations() {
             const citationContainer = document.getElementById('citations');
-            if (citationContainer.style.display === 'none') {
-                citationContainer.style.display = 'block';
-            } else {
+            if (citationContainer.style.display === 'block') {
                 citationContainer.style.display = 'none';
+            } else {
+                citationContainer.style.display = 'block';
             }
         }
     </script>
