@@ -3,137 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment 2 - The Burning World</title>
+    <title>A2 - The Burning World</title>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            font-weight: normal;
-        }
-        .title-container {
-            width: 100%;
-            background-color: #880808;
-            padding: 20px 0;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
-        h1 {
-            font-family: 'Merriweather', serif;
-            color: #FFFFFF;
-            font-weight: bold;
-            font-size: 48px;
-        }
-        h2 {
-            font-family: 'Merriweather', serif;
-            color: #d9534f;
-            font-weight: bold;
-            font-size: 32px;
-        }
-        h3 {
-            font-family: 'Merriweather', serif;
-            color: #880808;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        .description b {
-            font-weight: bold;
-        }
-        .content {
-            margin: 0 100px;
-        }
-        .chart-container {
-            margin: 20px auto;
-            width: 90%;
-            max-width: 1200px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #fff;
-            padding: 10px;
-        }
-        .chart-section {
-            margin: 20px 0;
-            padding: 20px;
-            border: 4px solid #880808;
-            border-radius: 8px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .selected {
-            background-color: #28a745;
-        }
-        .chart-row {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .chart-container svg {
-            max-height: 400px;
-            width: 100%;
-        }
-        .description {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 10px;
-        }
-        .citations {
-            display: none;
-            font-size: 14px;
-            color: #555;
-            margin-top: 20px;
-            text-align: center;
-        }
-        footer {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #f4f4f9;
-            color: #555;
-            font-size: 14px;
-            border-top: 1px solid #ddd;
-        }
-        footer a {
-            color: #337ab7;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        .citation-button {
-            background-color: #6c757d;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .citation-button:hover {
-            background-color: #5a6268;
-        }
-        .major-section {
-            margin-bottom: 60px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="title-container">
@@ -159,9 +34,8 @@
             </div>
 
             <div class="chart-section">
-                <h3 id="chart-title">Comparison of Temperature and Precipitation Effects</h3>
+                <h3 id="chart-title"></h3>
                 <div id="chart-description" class="description">
-                    Explore how the combination of <b>temperature</b> and <b>precipitation</b> impacts wildfires across regions.
                 </div>
                 <div id="chart-container" class="chart-container"></div>
             </div>
@@ -190,9 +64,9 @@
         <p>Author: to fill before submission</p>
         <p>Date Produced: to fill before submission</p>
         <p>Data Sources: 
-            <a href="https://ourworldindata.org/wildfires">Wildfires </a>, 
-            <a href="https://ourworldindata.org/temperature-anomaly">Temperature </a>, 
-            <a href="https://ourworldindata.org/grapher/average-precipitation-per-year">Precipitation </a>
+            <a href="https://ourworldindata.org/wildfires">Wildfires</a>, 
+            <a href="https://ourworldindata.org/temperature-anomaly">Temperature</a>, 
+            <a href="https://ourworldindata.org/grapher/average-precipitation-per-year">Precipitation</a>
         </p>
         <div class="citations" id="citations">
             <p> Veronika Samborska and Hannah Ritchie (2024) - “Wildfires” Published online at OurWorldinData.org. Retrieved from: 'https://ourworldindata.org/wildfires' [Online Resource]</p>
