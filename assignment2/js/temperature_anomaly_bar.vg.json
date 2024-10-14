@@ -42,6 +42,58 @@
           "x": {"field": "Year", "type": "ordinal"},
           "y": {"field": "Temperature anomaly", "type": "quantitative"}
         }
+      },
+      {
+        "mark": {
+          "type": "rule",
+          "stroke": "grey",
+          "strokeWidth": 1,
+          "strokeDash": [4, 2]
+        },
+        "encoding": {
+          "x": {"datum": "1998"}
+        }
+      },
+      {
+        "mark": {
+          "type": "rule",
+          "stroke": "grey",
+          "strokeWidth": 1,
+          "strokeDash": [4, 2]
+        },
+        "encoding": {
+          "x": {"datum": "2015"}
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "text": "El Niño",
+          "align": "center",
+          "fontSize": 14,
+          "fontWeight": "normal",
+          "color": "black",
+          "dy": -10
+        },
+        "encoding": {
+          "x": {"datum": "2015"},
+          "y": {"datum": 0.6}
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "text": "El Niño",
+          "align": "center",
+          "fontSize": 14,
+          "fontWeight": "normal",
+          "color": "black",
+          "dy": -9
+        },
+        "encoding": {
+          "x": {"datum": "1998"},
+          "y": {"datum": 0.6}
+        }
       }
     ]
   }
